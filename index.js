@@ -17,7 +17,7 @@ bot.on("message", async message => {
   let args = messageArray.slice(1);
 
   if (cmd === `${prefix}ping`){
-    message.channel.send("Pong!");
+    message.channel.send(`:ping_pong: Pong! \`${bot.pings[0]}ms\``);
   }
 });
 
