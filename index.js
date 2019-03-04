@@ -1,5 +1,26 @@
 const Discord = require("discord.js");
+const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
+bot.commands = new Discord.Collection()
+
+fs.readdir("./commands/", (err, files) => {
+  
+  if(err) console.log(err);
+  
+  let jsfile = files.filter(f => f.split(".").pop() === "js")
+  if(jsfile.length <= 0){
+    console.log("Couldn't find commands.");
+    return;
+  }
+  
+  jsfile.forEach((f, i) => {
+    let props = require(`./commands${f}`);
+    console.log(`${f} loaded!`);
+    bot.commands.set(props.help.name, props);
+  });
+  
+}); 
+
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
@@ -39,26 +60,10 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
-
-  if (cmd === `${prefix}ping`){
-    message.channel.send(`:ping_pong: Pong! \`${bot.pings[0]}ms\``);
-  }
   
-  if (cmd === `${prefix}help`){
-    let DM = new Discord.RichEmbed()
-    .setColor(`#409cd9`)
-    .setAuthor(message.author.username, message.author.displayAvatarURL)
-    .setDescription(`:mailbox_with_mail:  I have private messaged you a list of commands!`)
-    .setTimestamp()
-    message.channel.send(DM);
-    
-    let helpembed = new Discord.RichEmbed()
-    .setColor(`#409cd9`)
-    .setAuthor(`Commands & Guides`, `https://cdn.discordapp.com/avatars/482795587045949440/c364a04cf589085867b25304c60abb26.png`)
-    .addField(`:desktop: General Commands`, `${prefix}help - Show a list of commands & guides to your DM.\n${prefix}ping - Show the current bot ping/ms.`)
-    .setTimestamp()
-    message.author.send(helpembed);
-  }
+  let commandfile = bot.commands.get(cmd.slice(prefix.length));
+  if(commandfile) commandfile.run(bot,message,args);
+ 
 });
 
 bot.login(process.env.token);
