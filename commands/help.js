@@ -11,8 +11,8 @@ let dm = new Discord.RichEmbed()
     
 let helpembed = new Discord.RichEmbed()
     .setColor(`#409cd9`)
-    .setAuthor(`Commands & Guides`, `https://cdn.discordapp.com/avatars/482795587045949440/c364a04cf589085867b25304c60abb26.png`)
-    .addField(`:desktop: General Commands`, `!help - Show a list of commands & guides to your DM.\n!ping - Show the current bot ping/ms.\n!verify - Verify your discord account.`)
+    .setAuthor(`Commands & Guides`, `bot.user.displayAvatarURL`)
+    .addField(`:desktop: General Commands`, `!help - Show a list of commands & guides to your DM.\n!ping - Show the current bot ping/ms.\n!verify/verification - Verify your discord account.`)
     .setTimestamp()
     message.author.send(helpembed);  
 
