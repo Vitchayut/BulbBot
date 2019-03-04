@@ -1,2 +1,2 @@
-# zesty-tut
+# frisbee-max
 For educational purposes.
