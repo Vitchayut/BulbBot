@@ -24,7 +24,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
-  bot.user.setActivity(`with bepis. | !help`);
+  bot.user.setActivity(`with _ItsNuaZ. | !help`);
 });
 
 bot.on('guildMemberAdd', member => {
