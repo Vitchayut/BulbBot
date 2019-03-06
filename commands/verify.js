@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args, prefix) => {
+module.exports.run = async (bot, message, args) => {
 
     message.delete();
     let role = message.guild.roles.find(role => role.name === 'Verified Member ✔️');
