@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => {
   let user;
@@ -24,8 +23,8 @@ module.exports.run = async (bot, message, args) => {
 		.addField(`<:discord_online:553168186925907980> \`User Status\``, `${user.presence.status}`, true)
 		.addField(':video_game: \`User Activity\`', `${user.presence.game ? user.presence.game.name : 'None'}`, true)
 		.addField(':label: \`Roles\`', member.roles.map(roles => `<@&${roles.id}>`).join(', '), true)
-    .addField(':calendar: \`Joined Guild Date\`', `${moment.utc(member.joinedAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`, true)
-    .addField(':calendar: \`Account Created Date\`', `${moment.utc(user.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`, true)
+    .addField(':calendar: \`Joined Guild Date\`', `${member.joinedAt}`, true)
+    .addField(':calendar: \`Account Created Date\`', `${member.createdAt}`, true)
     .setFooter(`💬 Replying to ${message.author.username}#${message.author.discriminator}`)
      message.channel.send({embed});
 }
