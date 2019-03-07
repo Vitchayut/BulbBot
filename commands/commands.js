@@ -36,9 +36,9 @@ let helpembed = new Discord.RichEmbed()
         if (page === 1) return;
         page--;
         color--;
-        embed.setDescription(pages[page - 1]);
-        embed.setColor(colors[color - 1]);
-        embed.setFooter(`Page ${page} of 4`);
+        helpembed.setDescription(pages[page - 1]);
+        helpembed.setColor(colors[color - 1]);
+        helpembed.setFooter(`Page ${page} of 4`);
         msg.edit(helpembed);
       });
 
@@ -46,9 +46,9 @@ let helpembed = new Discord.RichEmbed()
         if (page === 4) return;
         page++;
         color++;
-        embed.setDescription(pages[page - 1]);
-        embed.setColor(colors[color - 1]);
-        embed.setFooter(`Page ${page} of 4`);
+        helpembed.setDescription(pages[page - 1]);
+        helpembed.setColor(colors[color - 1]);
+        helpembed.setFooter(`Page ${page} of 4`);
         msg.edit(helpembed);
       });
     });
