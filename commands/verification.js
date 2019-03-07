@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args, prefix) => {
+module.exports.run = async (bot, message, args) => {
 
     message.delete();
     let role = message.guild.roles.find(role => role.name === 'Verified Member ✔️');
@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args, prefix) => {
             .setDescription('<:verified:512259245371031552> **Your account has been successfully verified.**')
         return message.channel.send((verifyEmbed));
     }
-    
+
 }
 module.exports.help = {
   name: "verification"

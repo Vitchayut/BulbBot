@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args, prefix) => {
+module.exports.run = async (bot, message, args) => {
 
     let online = message.guild.members.filter(member => member.user.presence.status !== 'offline');
     let offline = message.guild.members.filter(member => member.user.presence.status == 'offline');

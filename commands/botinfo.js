@@ -10,11 +10,12 @@ module.exports.run = async (bot, message, args) => {
     .setURL(`https://discord.gg/NeAvnzq`)
     .setTimestamp()
     .setTitle(`Click here to join our discord server!`)
-    .setDescription("<:js:512247624490024986> Made with Node.js and Discord.js")
-    .setFooter(`Made by _ItsNuaZ#3977 | Made with Node.js and Discord.js!`, `https://cdn.discordapp.com/attachments/475515176070807554/485755761549508621/nzkgalaxy.png`)
+    .setDescription("<:js:512247624490024986> Made with Node.js and Discord.js <:discordjs:553157782652715009>\n<:Heroku:553158576458432523> Hosted by Heroku.")
+    .setFooter(`Made by _ItsNuaZ#3977`, `https://cdn.discordapp.com/avatars/346102251632197632/b92c95190ff53e40c396104534d71f75.png`)
     .addField(`:clipboard: Created by`, `_ItsNuaZ#3977`, true)
-    .addField(`:information_source: Version`, `0.2.2b`, true)
-    .addField(`:tools: Debug`, `new update to version 0.2.2b! , alot of stuff changed and improved :D`);
+    .addField(`:information_source: Version`, `0.3.2a`, true)
+    .addField(`:tools: Debug`, `new update to version 0.3.2a! , alot of stuff changed and improved :D`)
+    .setTimestamp();
 
     message.channel.send(botembed);
 }

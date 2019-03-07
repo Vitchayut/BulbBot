@@ -55,5 +55,5 @@ let helpembed = new Discord.RichEmbed()
   });
 }
 module.exports.help = {
-  name: "help"
+  name: "commands"
 }
