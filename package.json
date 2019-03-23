@@ -9,6 +9,7 @@
   "author": "Zendovo",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.3.2"
+    "discord.js": "^11.3.2",
+    "superagent": "^4.1.0"
   }
 }
