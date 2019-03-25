@@ -4,6 +4,8 @@ const superagent = require("superagent");
 const math = require('mathjs');
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
+let cooldown = new Set();
+let cdseconds = 5;
 
 fs.readdir("./commands/", (err, files) => {
   
@@ -57,16 +59,71 @@ bot.on("message", async message => {
 
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;
+  
+  // Blacklisted words.
+  let blacklisted = ["fuck", "shit", "fag", "faggot", "nigga", "nigger", "pussy", "rape", "dick", "pussi", "whore", "porn", "fuq", "faq", "fuc", "dildo", "nazi", "hitler", "adolf", "kuy", "penis", "boob", "cunt", "cum", "bitch", "fuk", "cyka", "blyat", "nude", "cock", "twat", "hentai", "anal", "spank", "blowjob", "futanari"];
+  let foundInText = false;
+  for (var i in blacklisted) {
+      if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
+  }
+
+  if (foundInText) {
+  if(message.member.hasPermission("ADMINISTRATOR")) return;
+      message.delete();
+      let badword = new Discord.RichEmbed()
+      .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+      .setDescription("<a:hyperpinged:511872097304313859> Message deleted!")
+      .setColor("#f44242")
+      .addField("<:Content_Blocked:523798974876876810> \`Your message contains inappropriate letters or words, deleted.\` <a:BoiGifFixed:511160003667689484>", message.author)
+      message.channel.send(badword).then(msg => {msg.delete(10850)});
+  }
+  
+  // Blacklisted off-site links.
+  let blacklistedA = ["discord.gg", "e-roblox.com", "o-roblox.com"];
+  let foundInTextA = false;
+  for (var i in blacklistedA) {
+      if (message.content.toLowerCase().includes(blacklistedA[i].toLowerCase())) foundInTextA = true;
+  }
+
+  if (foundInTextA) {
+    if(message.member.hasPermission("ADMINISTRATOR")) return;
+    if (message.channel.name == '📢adversting📢') return;
+      message.delete();
+      let offsitestuff = new Discord.RichEmbed()
+      .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+      .setDescription("<a:hyperpinged:511872097304313859> Message deleted!")
+      .setColor("#f44242")
+      .addField("<:Content_Blocked:523798974876876810> \`Your message contains off-site links, deleted.\` <a:BoiGifFixed:511160003667689484>", message.author)
+      message.channel.send(offsitestuff).then(msg => {msg.delete(10850)});
+  }
 
   let prefix = '!';
   if(!message.content.startsWith(prefix)) return;
+  // Cooldown feature.
+  if(cooldown.has(message.author.id)){
+    message.delete();
+    let cooldownbotsystem = new Discord.RichEmbed()
+    .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+    .setDescription("<a:hyperpinged:511872097304313859> Bot cooldown!")
+    .setColor("#f44242")
+    .addField("<a:timer:511872188341682187> \`You have to wait for 5 seconds!\` <a:BoiGifFixed:511160003667689484>", message.author,true)
+    return message.channel.send(cooldownbotsystem).then(msg => {msg.delete(6850)});
+  }
+  if(!message.member.hasPermission("MANAGE_MESSAGES")){
+    cooldown.add(message.author.id);
+  }
+  
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
   
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(bot,message,args);
- 
+  
+  setTimeout(() => {
+    cooldown.delete(message.author.id)
+  }, cdseconds * 1000)
+
 });
 
 bot.login(process.env.token);
