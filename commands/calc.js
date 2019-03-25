@@ -25,6 +25,7 @@ module.exports.run = async (bot, message, args) => {
 
     const Discord = require('discord.js');
     const embed = new Discord.RichEmbed()
+        .setAuthor(message.member.displayName, message.author.displayAvatarURL)
         .setThumbnail("https://images-na.ssl-images-amazon.com/images/I/31QYTepQomL.png")
         .setColor('RANDOM')
         .setTimestamp()
