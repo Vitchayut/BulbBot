@@ -1,7 +1,5 @@
 const Discord = require("discord.js");
 const fs = require("fs");
-const superagent = require("superagent");
-const math = require('mathjs');
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 let cooldown = new Set();
