@@ -58,6 +58,17 @@ bot.on("message", async message => {
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;
   
+  // Prefixes config.
+  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+  
+  if(!prefixes[message.guild.id]){
+    prefixes[message.guild.id] = {
+      prefixes: botconfig.prefix
+    };
+  }
+  
+  let prefix = prefixes[message.guild.id].prefixes;
+  
   // Blacklisted words.
   let blacklisted = ["fuck", "shit", "fag", "faggot", "nigga", "nigger", "pussy", "rape", "dick", "pussi", "whore", "porn", "fuq", "faq", "fuc", "dildo", "nazi", "hitler", "adolf", "kuy", "penis", "boob", "cunt", "cum", "bitch", "fuk", "cyka", "blyat", "nude", "cock", "twat", "hentai", "anal", "spank", "blowjob", "futanari"];
   let foundInText = false;
@@ -95,7 +106,6 @@ bot.on("message", async message => {
       message.channel.send(offsitestuff).then(msg => {msg.delete(10850)});
   }
 
-  let prefix = '!';
   if(!message.content.startsWith(prefix)) return;
   // Cooldown feature.
   if(cooldown.has(message.author.id)){
