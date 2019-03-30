@@ -6,12 +6,11 @@ const client = new HypixelAPI(process.env.hypixel);
 
 module.exports.run = async (bot, message, args) => {
 
-var json = JSON.parse(jsonString);
-
 let user = args.slice(0).join(" ");
 
 client.getPlayer('name', user).then((player) => {
     console.log(player)
+    var json = JSON.parse(player);
     message.reply(json.player.networkExp)
 }).catch((err) => {
     console.error('Error! ' + err)
