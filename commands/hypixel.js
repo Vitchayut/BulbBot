@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
 let user = args.slice(0).join(" ");
 
-client.getDisplayname('name', user).then((player) => {
+client.getLeaderboards('name', user).then((player) => {
     console.log(player)
     //message.channel.send(player)
 }).catch((err) => {
