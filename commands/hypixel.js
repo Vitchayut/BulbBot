@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const HypixelAPI = require('hypixel-api')
-const client = new HypixelAPI(hypixelapitoken)
+const client = new HypixelAPI(process.env.hypixel)
 
 module.exports.run = async (bot, message, args) => {
 
