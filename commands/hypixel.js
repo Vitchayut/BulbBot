@@ -11,9 +11,10 @@ client.getPlayer('name', user).then((player) => {
 }).catch((err) => {
     console.error('Error! ' + err)
 })
+    hypixelPlayer = (await HypixelClient.getPlayer('name', user).player
     
     let embed = new Discord.RichEmbed()
-    .setTitle('Player: ' + '_ItsNuaZ')
+    .setTitle('Player: ' + hypixelPlayer.displayname)
     message.channel.send(embed)
 
 }
