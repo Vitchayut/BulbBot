@@ -7,7 +7,7 @@ const client = new HypixelAPI(process.env.hypixel);
 module.exports.run = async (bot, message, args) => {
 
 let user = args.slice(0).join(" ");	
-if (user > 0) {
+if (user < 0) {
 				let hypixelPlayer
 
 				//message.channel.startTyping()
