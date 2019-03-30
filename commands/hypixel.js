@@ -5,21 +5,20 @@ const client = new HypixelAPI('327aaf6b-0d25-47bb-bb70-ce3309c6aea0')
 module.exports.run = async (bot, message, args) => {
 
 let user = args.slice(0).join(" ");
-//let hypixelPlayer = (await HypixelClient.getPlayer('name', user).player
-
+let hypixelPlayer = client.getPlayer('name', user).then((player) => {
 let playerembed = new Discord.RichEmbed()
   .setTitle('Player: ' + hypixelPlayer.displayname)
   .setColor('RANDOM')
   .setTimestamp()
-
   message.channel.send(playerembed);
-
+}).catch((err) => {
+   console.error('Error! ' + err)
+})
 //client.getPlayer('name', user).then((player) => {
 //    console.log(player)
 //}).catch((err) => {
 //    console.error('Error! ' + err)
 //})    
-
 
 }
 
