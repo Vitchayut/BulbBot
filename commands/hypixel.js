@@ -13,7 +13,7 @@ if (user > 0) {
 				message.channel.startTyping()
 
 				try {
-					hypixelPlayer = (await HypixelClient.getPlayer('name', user).player
+					hypixelPlayer = (await HypixelClient.getPlayer('name', user)).player
 				}
 				catch (err) {
 					console.log(err)
