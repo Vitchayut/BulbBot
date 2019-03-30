@@ -6,11 +6,11 @@ module.exports.run = async (bot, message, args) => {
 
 let user = args.slice(0).join(" ");
 
-client.getPlayer('name', user).then((player) => {
-    console.log(player)
-}).catch((err) => {
-    console.error('Error! ' + err)
-})
+//client.getPlayer('name', user).then((player) => {
+//    console.log(player)
+//}).catch((err) => {
+//    console.error('Error! ' + err)
+//})
     hypixelPlayer = (await HypixelClient.getPlayer('name', user).player
     
     const embed = new Discord.RichEmbed()
