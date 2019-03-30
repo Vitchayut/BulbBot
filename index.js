@@ -78,7 +78,7 @@ bot.on("message", async message => {
   }
 
   if (foundInText) {
-  if(message.member.hasPermission("ADMINISTRATOR")) return;
+  if(message.member.hasPermission("MANAGE_MESSAGES")) return;
       message.delete();
       let badword = new Discord.RichEmbed()
       .setAuthor(message.member.displayName, message.author.displayAvatarURL)
