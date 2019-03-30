@@ -10,7 +10,7 @@ let user = args.slice(0).join(" ");
 if (user > 0) {
 				let hypixelPlayer
 
-				message.channel.startTyping()
+				//message.channel.startTyping()
 
 				try {
 					hypixelPlayer = (await HypixelClient.getPlayer('name', user)).player
@@ -47,7 +47,7 @@ if (user > 0) {
 
 				playerRich.addField('Guild', (playerGuild ? '[' + playerGuild.name + ' [' + playerGuild.tag + ']' + '](https://hypixel.net/guilds/' + playerGuild._id + '/)' : 'None'))
 
-				message.channel.stopTyping()
+				//message.channel.stopTyping()
 
 				message.channel.send(playerRich)
 			}
