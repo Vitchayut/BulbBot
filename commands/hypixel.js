@@ -8,11 +8,7 @@ let user = args.slice(0).join(" ");
 
 client.getPlayer('name', user).then((player) => {
     console.log(player)
-let playerembed = new Discord.RichEmbed()
-  .setTitle(`Player: ` + player.displayname)
-  .setColor(`RANDOM`)
-  .setTimestamp()
-  message.channel.send(playerembed);
+    message.reply(player.displayname)
 }).catch((err) => {
     console.error('Error! ' + err)
     message.channel.send(`:no_entry: \`Usage: !player <name>\``)
