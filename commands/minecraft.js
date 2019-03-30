@@ -56,7 +56,7 @@ module.exports.run = async (bot, message, args) => {
                       .setColor('#2fa006')
                       .setDescription(" ")
                       .setFooter(`Made by NuaZaKung#5585 | Version ${config.version}`, `https://cdn.discordapp.com/attachments/475515176070807554/485755761549508621/nzkgalaxy.png`)
-                      .setThumbnail("https://crafatar.com/avatars/" + body2.name)
+                      .setThumbnail("https://crafatar.com/avatars/" + body2.id)
                       /*
                        * Takes a Date object, defaults to current date.
                        */
