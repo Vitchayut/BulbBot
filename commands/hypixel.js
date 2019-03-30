@@ -6,9 +6,9 @@ module.exports.run = async (bot, message, args) => {
 
 let user = args.slice(0).join(" ");
 
-client.getPlayer('name', user).then((displayname) => {
-    console.log(displayname)
-    message.channel.send(displayname)
+client.getFriends('name', user).then((player) => {
+    console.log(player)
+    //message.channel.send(player)
 }).catch((err) => {
     console.error('Error! ' + err)
 })
