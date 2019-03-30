@@ -7,15 +7,19 @@ module.exports.run = async (bot, message, args) => {
 let user = args.slice(0).join(" ");
 let hypixelPlayer = (await HypixelClient.getPlayer('name', user).player
 
+let playerembed = new Discord.RichEmbed()
+  .setTitle('Player: ' + hypixelPlayer.displayname)
+  .setColor('RANDOM')
+  .setTimestamp()
+
+  message.channel.send(playerembed);
+
 //client.getPlayer('name', user).then((player) => {
 //    console.log(player)
 //}).catch((err) => {
 //    console.error('Error! ' + err)
 //})    
-let playerembed = new Discord.RichEmbed()
-.setTitle('Player: ' + hypixelPlayer.displayname)
-.setTimestamp()
-message.channel.send(playerembed);
+
 
 }
 
