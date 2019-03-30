@@ -16,6 +16,7 @@
     "request": "^2.88.0",
     "hypixel-api": "^1.1.0",
     "centra": "^2.2.2",
+    "moment": "^2.24.0",
     "google-translate-api": "^2.3.0"
   }
 }
