@@ -11,7 +11,7 @@ let user = args.slice(0).join(" ");
 //}).catch((err) => {
 //    console.error('Error! ' + err)
 //})
-    hypixelPlayer = (await HypixelClient.getPlayer('name', user).player
+    let hypixelPlayer = (await HypixelClient.getPlayer('name', user).player
     
     let embed = new Discord.RichEmbed()
     .setTitle('Player: ' + hypixelPlayer.displayname)
