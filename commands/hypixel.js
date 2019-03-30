@@ -6,13 +6,14 @@ const client = new HypixelAPI(process.env.hypixel);
 
 module.exports.run = async (bot, message, args) => {
 
-if (commandArgs.length > 0) {
+let user = args.slice(0).join(" ");	
+if (user > 0) {
 				let hypixelPlayer
 
 				message.channel.startTyping()
 
 				try {
-					hypixelPlayer = (await HypixelClient.getPlayer('name', commandArgs[0])).player
+					hypixelPlayer = (await HypixelClient.getPlayer('name', user).player
 				}
 				catch (err) {
 					console.log(err)
