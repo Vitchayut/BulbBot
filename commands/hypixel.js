@@ -19,10 +19,10 @@ let playerembed = new Discord.RichEmbed()
   .setColor(`RANDOM`)
   .setTimestamp()
   message.channel.send(playerembed);
-}
-else {
-	message.channel.send(`:no_entry: \`Usage: !player <name>\``)
-}
+//}
+//else {
+//	message.channel.send(`:no_entry: \`Usage: !player <name>\``)
+//}
 //client.getPlayer('name', user).then((player) => {
 //    console.log(player)
 //}).catch((err) => {
