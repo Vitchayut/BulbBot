@@ -6,12 +6,15 @@ module.exports.run = async (bot, message, args) => {
 
 let user = args.slice(0).join(" ");
 
-client.getLeaderboards('name', user).then((player) => {
+client.getPlayer('name', user).then((player) => {
     console.log(player)
-    //message.channel.send(player)
 }).catch((err) => {
     console.error('Error! ' + err)
 })
+    
+    let embed = new Discord.RichEmbed()
+    .setTitle('Player: ' + '_ItsNuaZ')
+    message.channel.send(embed)
 
 }
 
