@@ -7,19 +7,22 @@ module.exports.run = async (bot, message, args) => {
 let user = args.slice(0).join(" ");
 
 try {  
-let hypixelPlayer = client.getPlayer('name', user).player
+	hypixelPlayer = client.getPlayer(`name`, user).player
 }
 catch (err) {
-					console.log(err)
-					message.channel.send('Hmm, that player doesn\'t seem to exist!')
-					return
-				}
-  
+	console.log(err)
+	return
+}
+
 let playerembed = new Discord.RichEmbed()
-  .setTitle('Player: ' + hypixelPlayer.displayname)
-  .setColor('RANDOM')
+  .setTitle(`Player: ` + hypixelPlayer.displayname)
+  .setColor(`RANDOM`)
   .setTimestamp()
   message.channel.send(playerembed);
+}
+else {
+	message.channel.send(`:no_entry: \`Usage: !player <name>\``)
+}
 //client.getPlayer('name', user).then((player) => {
 //    console.log(player)
 //}).catch((err) => {
