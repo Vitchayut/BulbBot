@@ -6,9 +6,9 @@ module.exports.run = async (bot, message, args) => {
 
 let user = args.slice(0).join(" ");
 
-client.getPlayer('name', user).then((player.displayname) => {
-    console.log(player.displayname)
-    message.reply(player.displayname)
+client.getPlayer('name', user).then((player) => {
+    console.log(player)
+    message.reply(player)
 }).catch((err) => {
     console.error('Error! ' + err)
     message.channel.send(`:no_entry: \`Usage: !player <name>\``)
