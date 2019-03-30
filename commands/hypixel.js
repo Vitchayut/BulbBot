@@ -4,7 +4,7 @@ const client = new HypixelAPI('327aaf6b-0d25-47bb-bb70-ce3309c6aea0')
 
 module.exports.run = async (bot, message, args) => {
 
-client.getPlayer('name', 'Ethanent').then((player) => {
+client.getPlayer('name', args[1]).then((player) => {
     console.log(player)
 }).catch((err) => {
     console.error('Error! ' + err)
