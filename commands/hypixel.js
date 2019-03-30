@@ -13,9 +13,9 @@ let user = args.slice(0).join(" ");
 //})
     hypixelPlayer = (await HypixelClient.getPlayer('name', user).player
     
-    const embed = new Discord.RichEmbed()
+    let embed = new Discord.RichEmbed()
     .setTitle('Player: ' + hypixelPlayer.displayname)
-    message.channel.send(embed)
+    message.channel.send(embed);
 
 }
 
