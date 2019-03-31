@@ -13,7 +13,9 @@ Be sure to replace the following tokens with yours!
 # FAQ:
 **Q: How do I get my own discord bot token?**
 
-**A: [1] Navigate to https://discordapp.com/developers/applications**
+**A: Follow the instructions below.**
+
+     [1] Navigate to https://discordapp.com/developers/applications
      
      [2] Create a new application or choose your existing application.
      
@@ -29,7 +31,9 @@ Be sure to replace the following tokens with yours!
      
 **Q: How do I get my own hypixel api token?**
 
-**A: [1] Simply join hypixel, and then type "/api new".
+**A: Follow the instructions below.**
+
+     [1] Simply join hypixel, and then type "/api new".
      
      [2] Navigate to your heroku app settings.
      
