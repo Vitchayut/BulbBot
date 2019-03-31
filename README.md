@@ -15,7 +15,7 @@ Be sure to replace the following tokens with yours!
 
 **A: Follow the instructions below.**
 
-     [1] Navigate to [Developers Applications.](https://discordapp.com/developers/applications)
+     [1] Navigate to https://discordapp.com/developers/applications
      
      [2] Create a new application or choose your existing application.
      
