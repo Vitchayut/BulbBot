@@ -12,8 +12,11 @@ For users who host a bot by themselves!
 [2] Replace **process.env.hypixel** with your hypixel api token. **(commands > hypixel.js)**
 
 Wanted to host a bot for 24/7 without using your own PC?
+
 No problem!, You can also host a bot on Heroku!
+
 Be sure to create your own github repository!
+
 Read the **FAQ** below for Heroku users.
 
 # FAQ (Host a bot on Heroku.):
