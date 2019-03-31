@@ -41,4 +41,4 @@ Be sure to replace the following tokens with yours!
      
      [4] Put "hypixel" on the first box and then put your api key on the second box.
      
-     [5] Select "Add" and you're done with the token.**
+     [5] Select "Add" and you're done with the token.
