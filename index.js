@@ -71,7 +71,7 @@ bot.on("message", async message => {
   let prefix = prefixes[message.guild.id].prefixes;
   
   // Blacklisted words.
-  let blacklisted = ["fuck", "shit", "fag", "faggot", "nigga", "nigger", "pussy", "rape", "dick", "pussi", "whore", "porn", "fuq", "faq", "fuc", "dildo", "nazi", "hitler", "adolf", "kuy", "penis", "boob", "cunt", "cum", "bitch", "fuk", "cyka", "blyat", "nude", "cock", "twat", "hentai", "anal", "spank", "blowjob", "futanari"];
+  /**let blacklisted = ["fuck", "shit", "fag", "faggot", "nigga", "nigger", "pussy", "rape", "dick", "pussi", "whore", "porn", "fuq", "faq", "fuc", "dildo", "nazi", "hitler", "adolf", "kuy", "penis", "boob", "cunt", "cum", "bitch", "fuk", "cyka", "blyat", "nude", "cock", "twat", "hentai", "anal", "spank", "blowjob", "futanari"];
   let foundInText = false;
   for (var i in blacklisted) {
       if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
@@ -86,7 +86,7 @@ bot.on("message", async message => {
       .setColor("#f44242")
       .addField("<:Content_Blocked:523798974876876810> \`Your message contains inappropriate letters or words, deleted.\` <a:BoiGifFixed:511160003667689484>", message.author)
       message.channel.send(badword).then(msg => {msg.delete(10850)});
-  }
+  }**/
   
   // Blacklisted off-site links.
   let blacklistedA = ["discord.gg", "e-roblox.com", "o-roblox.com"];
