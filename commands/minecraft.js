@@ -80,7 +80,7 @@ module.exports.run = async (bot, message, args) => {
       .setAuthor(message.member.displayName, message.author.displayAvatarURL)
       .setColor(config.red)
       .setDescription(`:no_entry: \`Usage: --namehistory (Player)\``);
-        message.reply(notvaliduses);
+        message.channel.send(notvaliduses);
     }
 }
 
