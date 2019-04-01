@@ -26,7 +26,7 @@ fs.readdir("./commands/", (err, files) => {
 
 
 bot.on("ready", async () => {
-  console.log(`${bot.user.username} is online!`);
+  console.log(`${bot.user.username} is loaded and online on ${bot.guilds.size} servers!`);
   bot.user.setActivity(`with _ItsNuaZ. | !help`);
 });
 
@@ -71,7 +71,7 @@ bot.on("message", async message => {
   let prefix = prefixes[message.guild.id].prefixes;
   
   // Blacklisted words.
-  /**let blacklisted = ["fuck", "shit", "fag", "faggot", "nigga", "nigger", "pussy", "rape", "dick", "pussi", "whore", "porn", "fuq", "faq", "fuc", "dildo", "nazi", "hitler", "adolf", "kuy", "penis", "boob", "cunt", "cum", "bitch", "fuk", "cyka", "blyat", "nude", "cock", "twat", "hentai", "anal", "spank", "blowjob", "futanari"];
+  let blacklisted = ["fuck", "faggot", "nigga", "nigger", "pussy", "rape", "dick", "pussi", "porn", "dildo", "nazi", "hitler", "penis", "boob", "cunt", "cum", "bitch", "nude", "cock", "twat", "hentai", "anal", "spank", "blowjob", "futanari", "vagina"];
   let foundInText = false;
   for (var i in blacklisted) {
       if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
@@ -86,17 +86,17 @@ bot.on("message", async message => {
       .setColor("#f44242")
       .addField("<:Content_Blocked:523798974876876810> \`Your message contains inappropriate letters or words, deleted.\` <a:BoiGifFixed:511160003667689484>", message.author)
       message.channel.send(badword).then(msg => {msg.delete(10850)});
-  }**/
+  }
   
   // Blacklisted off-site links.
-  let blacklistedA = ["discord.gg", "e-roblox.com", "o-roblox.com"];
+  let blacklistedA = ["discord.gg", "robuxgiver.ml"];
   let foundInTextA = false;
   for (var i in blacklistedA) {
       if (message.content.toLowerCase().includes(blacklistedA[i].toLowerCase())) foundInTextA = true;
   }
 
   if (foundInTextA) {
-    if(message.member.hasPermission("ADMINISTRATOR")) return;
+    if(message.member.hasPermission("MANAGE_MESSAGES")) return;
     if (message.channel.name == '📢adversting📢') return;
       message.delete();
       let offsitestuff = new Discord.RichEmbed()
