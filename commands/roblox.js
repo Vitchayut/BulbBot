@@ -47,7 +47,7 @@ module.exports.run = async (bot, message, args) => {
                     var namelist = names.join(", ");**/
 
                       const embed = new Discord.RichEmbed()
-                      .setTitle(`**` + body2.Username + `'s profile` + `**`)
+                      .setTitle(`<:roblox:563611416473501716> **` + body2.Username + `'s profile` + `**`)
                       .setURL("https://www.roblox.com/users/" + body2.Id + "/profile")
                       .setAuthor(body2.Username, "https://www.roblox.com/headshot-thumbnail/image?userId=" + body2.Id + "&width=420&height=420&format=png")
                       /*
