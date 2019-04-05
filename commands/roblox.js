@@ -12,8 +12,8 @@ module.exports.run = async (bot, message, args) => {
                 }
                     try {
                       var body2 = JSON.parse(body2);
-                      if (body2.IsOnline = `false`) userstatus = '<:discord_invisible:553168206249066496> \`Offline\`';
-                      if (body2.IsOnline = `true`) userstatus = '<:discord_online:553168186925907980> \`Online\`';  
+                      if (body2.IsOnline = false) userstatus = '<:discord_invisible:553168206249066496> \`Offline\`';
+                      if (body2.IsOnline = true) userstatus = '<:discord_online:553168186925907980> \`Online\`';  
                    } catch(err) {
                       console.log(err);
                       let notvalidplayer = new Discord.RichEmbed()
@@ -64,7 +64,7 @@ module.exports.run = async (bot, message, args) => {
                        */
                       .setTimestamp()
                       .addField(":name_badge: Username", `\`` + body2.Username + `\``, true)                    
-                      .addField("<:discord_online:553168186925907980> Status", userstatus, true)
+                      .addField(":video_game: Status", userstatus, true)
                       .addField(":card_index: ID", `\`` + body2.Id + `\``, true)
                       /*
                        * Inline fields may not display as inline if the thumbnail and/or image is too big.
