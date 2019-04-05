@@ -55,13 +55,13 @@ module.exports.run = async (bot, message, args) => {
                        */
                       .setColor(config.red)
                       .setDescription(" ")
-                      .setThumbnail("https://www.roblox.com/Thumbs/Avatar.ashx?x=200&y=200&userId=" + body2.Id)
+                      .setThumbnail("https://www.roblox.com/Thumbs/BCOverlay.ashx?username=" + body2.Username)
+                      .setImage("https://www.roblox.com/Thumbs/Avatar.ashx?x=200&y=200&userId=" + body2.Id)
                       /*
                        * Takes a Date object, defaults to current date.
                        */
                       .setTimestamp()
-                      .addField(":name_badge: Username", `\`` + body2.Username + `\``, true)
-                      .addField(":label: Membership", "https://www.roblox.com/Thumbs/BCOverlay.ashx?username=" + body2.Username, true)
+                      .addField(":name_badge: Username", `\`` + body2.Username + `\``, true)                    
                       .addField("<:discord_online:553168186925907980> User is online?", `\`` + body2.IsOnline + `\``, true)
                       .addField(":card_index: ID", `\`` + body2.Id + `\``, true)
                       /*
