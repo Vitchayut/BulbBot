@@ -12,6 +12,8 @@ module.exports.run = async (bot, message, args) => {
                 }
                     try {
                       var body2 = JSON.parse(body2);
+                      if (body2.IsOnline = `false`) userstatus = '<:discord_invisible:553168206249066496> \`Offline\`';
+                      if (body2.IsOnline = `true`) userstatus = '<:discord_online:553168186925907980> \`Online\`';  
                    } catch(err) {
                       console.log(err);
                       let notvalidplayer = new Discord.RichEmbed()
@@ -45,9 +47,6 @@ module.exports.run = async (bot, message, args) => {
                     }
 
                     var friends = names.join(", ");**/
-                      
-                      if (body2.IsOnline = `false`) userstatus = '<:discord_invisible:553168206249066496> \`Offline\`';
-                      if (body2.IsOnline = `true`) userstatus = '<:discord_online:553168186925907980> \`Online\`';
                     
                       const embed = new Discord.RichEmbed()
                       .setTitle(`<:roblox:563611416473501716> **` + body2.Username + `'s profile` + `**`)
