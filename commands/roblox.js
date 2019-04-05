@@ -48,8 +48,8 @@ module.exports.run = async (bot, message, args) => {
                     
                       var status = body2.IsOnline
                       if (status === null) status = 1;
-                      if (status === online) status = 2;
-                      if (status === offline) status = 3;
+                      if (status === 'online') status = 2;
+                      if (status === 'offline') status = 3;
                       if (status === 1) userstatus = ':grey_question: \`Unknown\`';
                       if (status === 2) userstatus = '<:discord_online:553168186925907980> \`Online\`';
                       if (status === 3) userstatus = '<:discord_invisible:553168206249066496> \`Offline\`';
