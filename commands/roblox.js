@@ -38,13 +38,13 @@ module.exports.run = async (bot, message, args) => {
                     }
                     var body = JSON.parse(body);
 
-                    /**var i = 0;
+                    var i = 0;
 
                     for (var i = 0; i < body.length; i++) {
-                        names.push(body[i].name);
+                        names.push(body[i].Username);
                     }
 
-                    var namelist = names.join(", ");**/
+                    var friends = names.join(", ");
 
                       const embed = new Discord.RichEmbed()
                       .setTitle(`<:roblox:563611416473501716> **` + body2.Username + `'s profile` + `**`)
@@ -68,6 +68,7 @@ module.exports.run = async (bot, message, args) => {
                        * Inline fields may not display as inline if the thumbnail and/or image is too big.
                        */
                       .addField(":mag_right: Past Usernames", `\`Coming Soon!\``, true)
+                      .addField(":blue_book: Friends", `\`` + friends + `\``, true)
                       /*
                        * Blank field, useful to create some space.
                        */
