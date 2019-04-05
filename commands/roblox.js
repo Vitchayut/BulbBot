@@ -47,9 +47,10 @@ module.exports.run = async (bot, message, args) => {
                     var friends = names.join(", ");**/
                     
                       var status = body2.IsOnline
-                      if (status === null) status = ':grey_question: \`Unknown\`';
-                      if (status === true) status = '<:discord_online:553168186925907980> \`Online\`';
-                      if (status === false) status = '<:discord_invisible:553168206249066496> \`Offline\`';
+                      if (status === null) status = 1;
+                      if (status === 1) userstatus = ':grey_question: \`Unknown\`';
+                      if (status === 2) userstatus = '<:discord_online:553168186925907980> \`Online\`';
+                      if (status === 3) userstatus = '<:discord_invisible:553168206249066496> \`Offline\`';
                       const embed = new Discord.RichEmbed()
                       .setTitle(`<:roblox:563611416473501716> **` + body2.Username + `'s profile` + `**`)
                       .setURL("https://www.roblox.com/users/" + body2.Id + "/profile")
@@ -66,7 +67,7 @@ module.exports.run = async (bot, message, args) => {
                        */
                       .setTimestamp()
                       .addField(":name_badge: Username", `\`` + body2.Username + `\``, true)                    
-                      .addField(":video_game: Status", status, true)
+                      .addField(":video_game: Status", userstatus, true)
                       .addField(":card_index: ID", `\`` + body2.Id + `\``, true)
                       /*
                        * Inline fields may not display as inline if the thumbnail and/or image is too big.
