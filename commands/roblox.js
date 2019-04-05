@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
 
                 let foundfetchnamesembed = new Discord.RichEmbed()
                 .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-                .setColor(config.gold)
+                .setColor(config.green)
                 .setTitle("<a:Green:511136179702333440> Fetching names for " + args[0]);
                 message.channel.send(foundfetchnamesembed).then(m => m.delete(1000));
                 var url = 'https://api.roblox.com/Users/' + body2.Id;
