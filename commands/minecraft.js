@@ -79,7 +79,7 @@ module.exports.run = async (bot, message, args) => {
       let notvaliduses = new Discord.RichEmbed()
       .setAuthor(message.member.displayName, message.author.displayAvatarURL)
       .setColor(config.red)
-      .setDescription(`:no_entry: \`Usage: --namehistory (Player)\``);
+      .setDescription(`:no_entry: \`Usage: !minecraft (Player)\``);
         message.channel.send(notvaliduses);
     }
 }
