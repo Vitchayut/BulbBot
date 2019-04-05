@@ -11,9 +11,7 @@ module.exports.run = async (bot, message, args) => {
                     return message.reply('Error...');
                 }
                     try {
-                      var body2 = JSON.parse(body2);
-                      if (body2.IsOnline === `false`) userstatus = '<:discord_invisible:553168206249066496> \`Offline\`';
-                      if (body2.IsOnline === `true`) userstatus = '<:discord_online:553168186925907980> \`Online\`';  
+                      var body2 = JSON.parse(body2);                        
                    } catch(err) {
                       console.log(err);
                       let notvalidplayer = new Discord.RichEmbed()
@@ -47,7 +45,9 @@ module.exports.run = async (bot, message, args) => {
                     }
 
                     var friends = names.join(", ");**/
-                    
+                      if (body2.IsOnline === false) status = '<:discord_invisible:553168206249066496> \`Offline\`';
+                      if (body2.IsOnline === true) status = '<:discord_online:553168186925907980> \`Online\`';
+                      
                       const embed = new Discord.RichEmbed()
                       .setTitle(`<:roblox:563611416473501716> **` + body2.Username + `'s profile` + `**`)
                       .setURL("https://www.roblox.com/users/" + body2.Id + "/profile")
@@ -64,7 +64,7 @@ module.exports.run = async (bot, message, args) => {
                        */
                       .setTimestamp()
                       .addField(":name_badge: Username", `\`` + body2.Username + `\``, true)                    
-                      .addField(":video_game: Status", userstatus, true)
+                      .addField(":video_game: Status", status, true)
                       .addField(":card_index: ID", `\`` + body2.Id + `\``, true)
                       /*
                        * Inline fields may not display as inline if the thumbnail and/or image is too big.
