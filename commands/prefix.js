@@ -6,7 +6,7 @@ let config = require("../botconfig.json");
 module.exports.run = async (bot, message, args) => {
 
   if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "Administrator");
-  if(!args[0] || args[0 == "help"]) return message.reply("\`Usage: --prefix <desired prefix here>\`");
+  if(!args[0] || args[0 == "help"]) return message.reply(`:no_entry: \`Usage: !prefix <desired prefix here>\``);
 
   let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
 
