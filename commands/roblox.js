@@ -62,7 +62,7 @@ module.exports.run = async (bot, message, args) => {
                        */
                       .setTimestamp()
                       .addField(":name_badge: Username", `\`` + body2.Username + `\``, true)                    
-                      .addField(":video_game: Online", body2.IsOnline, true)
+                      .addField(":video_game: Online", `\`` + body2.IsOnline + `\``, true)
                       .addField(":card_index: ID", `\`` + body2.Id + `\``, true)
                       /*
                        * Inline fields may not display as inline if the thumbnail and/or image is too big.
