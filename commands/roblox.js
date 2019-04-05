@@ -45,10 +45,9 @@ module.exports.run = async (bot, message, args) => {
                     }
 
                     var friends = names.join(", ");**/
-                      if body2.IsOnline = false
-                      let userstatus = '<:discord_invisible:553168206249066496> Offline';
-                      if body2.IsOnline = true
-                      let userstatus = '<:discord_online:553168186925907980> Online';
+                      
+                      if (body2.IsOnline = false) userstatus = '<:discord_invisible:553168206249066496> \`Offline\`';
+                      if (body2.IsOnline = true) userstatus = '<:discord_online:553168186925907980> \`Online\`';
                     
                       const embed = new Discord.RichEmbed()
                       .setTitle(`<:roblox:563611416473501716> **` + body2.Username + `'s profile` + `**`)
@@ -66,7 +65,7 @@ module.exports.run = async (bot, message, args) => {
                        */
                       .setTimestamp()
                       .addField(":name_badge: Username", `\`` + body2.Username + `\``, true)                    
-                      .addField("<:discord_online:553168186925907980> Status", `\`` + userstatus + `\``, true)
+                      .addField("<:discord_online:553168186925907980> Status", `userstatus`, true)
                       .addField(":card_index: ID", `\`` + body2.Id + `\``, true)
                       /*
                        * Inline fields may not display as inline if the thumbnail and/or image is too big.
