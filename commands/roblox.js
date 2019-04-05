@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
                         console.log(err);
                         return message.reply('Error...');
                     }
-                    var body = JSON.parse(body);
+                    /**var body = JSON.parse(body);
 
                     var i = 0;
 
@@ -44,8 +44,12 @@ module.exports.run = async (bot, message, args) => {
                         names.push(body[i].Username);
                     }
 
-                    var friends = names.join(", ");
-
+                    var friends = names.join(", ");**/
+                      if body2.IsOnline = false
+                      let userstatus = '<:discord_invisible:553168206249066496> Offline';
+                      if body2.IsOnline = true
+                      let userstatus = '<:discord_online:553168186925907980> Online';
+                    
                       const embed = new Discord.RichEmbed()
                       .setTitle(`<:roblox:563611416473501716> **` + body2.Username + `'s profile` + `**`)
                       .setURL("https://www.roblox.com/users/" + body2.Id + "/profile")
@@ -62,13 +66,14 @@ module.exports.run = async (bot, message, args) => {
                        */
                       .setTimestamp()
                       .addField(":name_badge: Username", `\`` + body2.Username + `\``, true)                    
-                      .addField("<:discord_online:553168186925907980> User is online?", `\`` + body2.IsOnline + `\``, true)
+                      .addField("<:discord_online:553168186925907980> Status", `\`` + userstatus + `\``, true)
                       .addField(":card_index: ID", `\`` + body2.Id + `\``, true)
                       /*
                        * Inline fields may not display as inline if the thumbnail and/or image is too big.
                        */
                       .addField(":mag_right: Past Usernames", `\`Coming Soon!\``, true)
-                      .addField(":blue_book: Friends", `\`` + friends + `\``, true)
+                      .addField(":blue_book: Friends", `\`Coming Soon!\``, true)
+                      .addField(":calendar: Join Date", `\`Coming Soon!\``, true)
                       /*
                        * Blank field, useful to create some space.
                        */
