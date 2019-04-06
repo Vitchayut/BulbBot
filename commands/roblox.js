@@ -69,7 +69,7 @@ module.exports.run = async (bot, message, args) => {
                       /*
                        * Inline fields may not display as inline if the thumbnail and/or image is too big.
                        */
-                      .addField(":blue_book: Primary Group", `\`` + body2.GroupName + `\``, true)
+                      .addField(":blue_book: Primary Group", `\`` + url2.body.GroupName + `\``, true)
                       .addField(":calendar: Join Date", `\`Coming Soon!\``, true)
                       .addField(":mag_right: Past Usernames", `\`Coming Soon!\``, true)
                       /*
