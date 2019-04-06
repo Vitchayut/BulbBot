@@ -37,9 +37,9 @@ module.exports.run = async (bot, message, args) => {
                         return message.reply('Error...');
                     }
                     
-                    var body = JSON.parse(`https://www.roblox.com/Groups/GetPrimaryGroupInfo.ashx?users=` + body2.Username);
+                    /**var body = JSON.parse(body);
 
-                    /**var i = 0;
+                    var i = 0;
 
                     for (var i = 0; i < body.length; i++) {
                         names.push(body[i].Username);
@@ -68,7 +68,7 @@ module.exports.run = async (bot, message, args) => {
                       /*
                        * Inline fields may not display as inline if the thumbnail and/or image is too big.
                        */
-                      .addField(":blue_book: Primary Group", `[https://www.roblox.com/Groups/GetPrimaryGroupInfo.ashx?users=` + body2.Username + `](` + body.GroupName +`)`, true)
+                      .addField(":blue_book: Primary Group", `[https://www.roblox.com/Groups/GetPrimaryGroupInfo.ashx?users=` + body2.Username + `](` + `**Click here!**`+`)`, true)
                       .addField(":calendar: Join Date", `\`Coming Soon!\``, true)
                       .addField(":mag_right: Past Usernames", `\`Coming Soon!\``, true)
                       /*
