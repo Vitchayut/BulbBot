@@ -4,6 +4,8 @@ const superagent = require("superagent");
 let config = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
+    let {body} = await superagent
+    .get(`https://api.roblox.com/user/get-friendship-count`);
     if (args[0] != null) {
         var url = 'https://api.roblox.com/users/get-by-username?username=' + args[0];
                 request(url, function(err, response, body2) {
@@ -46,8 +48,6 @@ module.exports.run = async (bot, message, args) => {
                     }
 
                     var friends = names.join(", ");**/
-                      let {body} = await superagent
-                      .get(`https://api.roblox.com/user/get-friendship-count`);
                     
                       const embed = new Discord.RichEmbed()
                       .setTitle(`<:roblox:563611416473501716> **` + body2.Username + `'s profile` + `**`)
