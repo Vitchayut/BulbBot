@@ -68,7 +68,7 @@ module.exports.run = async (bot, message, args) => {
                       /*
                        * Inline fields may not display as inline if the thumbnail and/or image is too big.
                        */
-                      .addField(":blue_book: Primary Group", `[https://www.roblox.com/Groups/GetPrimaryGroupInfo.ashx?users=` + body2.Username + `](` + `Click here!` + `)`, true)
+                      .addField(":blue_book: Primary Group", `[https://www.roblox.com/Groups/GetPrimaryGroupInfo.ashx?users=${body2.Username}](Click here!)`, true)
                       .addField(":calendar: Join Date", `\`Coming Soon!\``, true)
                       .addField(":mag_right: Past Usernames", `\`Coming Soon!\``, true)
                       /*
