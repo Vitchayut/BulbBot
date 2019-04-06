@@ -14,11 +14,6 @@
     "mathjs": "^5.8.0",
     "weather-js": "^2.0.0",
     "request": "^2.88.0",
-    "moment": "^2.24.0",
-    "ffmpeg": "^0.0.4",
-    "ffmpeg-binaries": "^4.0.0",
-    "ytdl-core": "^0.29.1",
-    "node-opus": "^0.3.1",
-    "yt-search": "^0.4.1"
+    "moment": "^2.24.0"
   }
 }
