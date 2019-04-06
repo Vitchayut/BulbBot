@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const request = require("request");
+const superagent = require("superagent");
 let config = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
@@ -45,6 +46,9 @@ module.exports.run = async (bot, message, args) => {
                     }
 
                     var friends = names.join(", ");**/
+                      let {friendship} = await superagent
+                      .get(`https://api.roblox.com/user/get-friendship-count`);
+
                     
                       const embed = new Discord.RichEmbed()
                       .setTitle(`<:roblox:563611416473501716> **` + body2.Username + `'s profile` + `**`)
@@ -67,9 +71,9 @@ module.exports.run = async (bot, message, args) => {
                       /*
                        * Inline fields may not display as inline if the thumbnail and/or image is too big.
                        */
-                      .addField(":mag_right: Past Usernames", `\`Coming Soon!\``, true)
-                      .addField(":blue_book: Friends", `\`Coming Soon!\``, true)
+                      .addField(":blue_book: Friends", `\`${body.count}\``, true)
                       .addField(":calendar: Join Date", `\`Coming Soon!\``, true)
+                      .addField(":mag_right: Past Usernames", `\`Coming Soon!\``, true)
                       /*
                        * Blank field, useful to create some space.
                        */
