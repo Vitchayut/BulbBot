@@ -31,17 +31,13 @@ module.exports.run = async (bot, message, args) => {
                 .setTitle("<a:Green:511136179702333440> Fetching names for " + args[0]);
                 message.channel.send(foundfetchnamesembed).then(m => m.delete(1000));
                 var url = 'https://api.roblox.com/Users/' + body2.Id;
-                request(url, function(err, response, body) {
+                var url2 = 'https://www.roblox.com/Groups/GetPrimaryGroupInfo.ashx?users=' + body2.Username;
+                request(url, url2, function(err, response, body) {
                     if(err) {
                         console.log(err);
                         return message.reply('Error...');
                     }
-                var url = 'https://www.roblox.com/Groups/GetPrimaryGroupInfo.ashx?users=' + body2.Username;
-                request(url, function(err, response, body3) {
-                    if(err) {
-                        console.log(err);
-                        return message.reply('Error...');
-                    }    
+                    
                     /**var body = JSON.parse(body);
 
                     var i = 0;
