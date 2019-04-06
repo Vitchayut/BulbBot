@@ -46,9 +46,8 @@ module.exports.run = async (bot, message, args) => {
                     }
 
                     var friends = names.join(", ");**/
-                      let {friendship} = await superagent
+                      let {body} = await superagent
                       .get(`https://api.roblox.com/user/get-friendship-count`);
-
                     
                       const embed = new Discord.RichEmbed()
                       .setTitle(`<:roblox:563611416473501716> **` + body2.Username + `'s profile` + `**`)
