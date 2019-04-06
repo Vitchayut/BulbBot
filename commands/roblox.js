@@ -1,11 +1,8 @@
 const Discord = require("discord.js");
 const request = require("request");
-const superagent = require("superagent");
 let config = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
-    let {body} = await superagent
-    .get(`https://api.roblox.com/user/get-friendship-count`);
     if (args[0] != null) {
         var url = 'https://api.roblox.com/users/get-by-username?username=' + args[0];
                 request(url, function(err, response, body2) {
@@ -39,6 +36,12 @@ module.exports.run = async (bot, message, args) => {
                         console.log(err);
                         return message.reply('Error...');
                     }
+                var url = 'https://www.roblox.com/Groups/GetPrimaryGroupInfo.ashx?users=' + body2.Username;
+                request(url, function(err, response, body3) {
+                    if(err) {
+                        console.log(err);
+                        return message.reply('Error...');
+                    }    
                     /**var body = JSON.parse(body);
 
                     var i = 0;
@@ -70,7 +73,7 @@ module.exports.run = async (bot, message, args) => {
                       /*
                        * Inline fields may not display as inline if the thumbnail and/or image is too big.
                        */
-                      .addField(":blue_book: Friends", `\`${body.count}\``, true)
+                      .addField(":blue_book: Primary Group", `\`` + body2.GroupName + `\``, true)
                       .addField(":calendar: Join Date", `\`Coming Soon!\``, true)
                       .addField(":mag_right: Past Usernames", `\`Coming Soon!\``, true)
                       /*
