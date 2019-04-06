@@ -31,16 +31,15 @@ module.exports.run = async (bot, message, args) => {
                 .setTitle("<a:Green:511136179702333440> Fetching names for " + args[0]);
                 message.channel.send(foundfetchnamesembed).then(m => m.delete(1000));
                 var url = 'https://api.roblox.com/Users/' + body2.Id;
-                var url2 = 'https://www.roblox.com/Groups/GetPrimaryGroupInfo.ashx?users=' + body2.Username;
-                request(url, url2, function(err, response, body) {
+                request(url, function(err, response, body) {
                     if(err) {
                         console.log(err);
                         return message.reply('Error...');
                     }
                     
-                    /**var body = JSON.parse(body);
+                    var body = JSON.parse(`https://www.roblox.com/Groups/GetPrimaryGroupInfo.ashx?users=` + body2.Username);
 
-                    var i = 0;
+                    /**var i = 0;
 
                     for (var i = 0; i < body.length; i++) {
                         names.push(body[i].Username);
@@ -69,7 +68,7 @@ module.exports.run = async (bot, message, args) => {
                       /*
                        * Inline fields may not display as inline if the thumbnail and/or image is too big.
                        */
-                      .addField(":blue_book: Primary Group", `\`` + url2.GroupName + `\``, true)
+                      .addField(":blue_book: Primary Group", `[https://www.roblox.com/Groups/GetPrimaryGroupInfo.ashx?users=` + body2.Username + `](` + body.GroupName +`)`, true)
                       .addField(":calendar: Join Date", `\`Coming Soon!\``, true)
                       .addField(":mag_right: Past Usernames", `\`Coming Soon!\``, true)
                       /*
