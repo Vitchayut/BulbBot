@@ -2,6 +2,8 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const botconfig = require("./botconfig.json");
 const bot = new Discord.Client({disableEveryone: true});
+const ownerID = '346102251632197632';
+const active = new Map();
 bot.commands = new Discord.Collection();
 let cooldown = new Set();
 let cdseconds = 5;
@@ -125,6 +127,10 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
+  let ops = {
+    ownerID: ownerID,
+    active: active
+  }
   
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(bot,message,args);
