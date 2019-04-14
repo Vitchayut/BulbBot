@@ -16,6 +16,7 @@ module.exports.run = async (bot, message, args) => {
     message.react("<:green_tick:566945998761361408>").then(() => {
     message.react("<:red_tick:566946004948090880>")
   });
+ });
 }
 
 module.exports.help = {
