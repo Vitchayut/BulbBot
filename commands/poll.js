@@ -13,6 +13,7 @@ module.exports.run = async (bot, message, args) => {
   let pollEmbed = new Discord.RichEmbed()
   .setAuthor(message.member.displayName, message.author.displayAvatarURL)
   .setDescription(question)
+  .setTimestamp()
   .setColor(config.gold);
   message.channel.send(pollEmbed).then(function (message) {
     message.react(agree).then(() => {
