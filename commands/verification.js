@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+let config = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
 
@@ -9,14 +10,16 @@ module.exports.run = async (bot, message, args) => {
     if (message.member.roles.has(role.id)) {
         let verifyEmbed = new Discord.RichEmbed()
             .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-            .setColor('#f44141')
-            .setDescription(':no_entry: **Your account has already been verified!**')
-        return message.channel.send((verifyEmbed));
+            .setColor(config.red)
+            .setDescription('<:red_tick:566946004948090880> \`Your account has already been verified!\`')
+            .setTimestamp()
+        return message.channel.send((verifyEmbed)).then(message => message.delete(4000));
     } else {
         let verifyEmbed = new Discord.RichEmbed()
             .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-            .setColor('#75aaff')
-            .setDescription('<:verified:512259245371031552> **Your account has been successfully verified.**')
+            .setColor(config.green)
+            .setDescription('<:green_tick:566945998761361408> \`Your account has been successfully verified.\`')
+            .setTimestamp()
         return message.channel.send((verifyEmbed));
     }
 
