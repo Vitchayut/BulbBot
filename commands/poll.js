@@ -13,8 +13,8 @@ module.exports.run = async (bot, message, args) => {
   .setDescription(question)
   .setColor(config.gold);
   message.channel.send(pollEmbed).then(function (message) {
-    message.react("✅")
-    message.react("❌")
+    message.react("<:green_tick:566945998761361408>").then(() => {
+    message.react("<:red_tick:566946004948090880>")
   });
 }
 
