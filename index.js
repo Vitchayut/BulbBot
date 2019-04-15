@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const botconfig = require("./botconfig.json");
 const serverStats = {
-  guildID: '353858407389986826',
-  totalUsersID: '567176163202564096'
+  guildID: process.env.guildID,
+  totalUsersID: process.env.totalUsersID
 };
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
@@ -35,7 +35,7 @@ bot.on("ready", async () => {
 });
 
 bot.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find(ch => ch.name === '👋welcome👋');
+  const channel = member.guild.channels.find(ch => ch.name === '👋welcome-goodbye👋');
   if (!channel) return;
   let welcomeembed = new Discord.RichEmbed()
   .setAuthor(member.user.username, member.user.displayAvatarURL)
@@ -54,7 +54,7 @@ bot.on('guildMemberAdd', member => {
 });
 
 bot.on('guildMemberRemove', member => {
-  const channel = member.guild.channels.find(ch => ch.name === '👋welcome👋');
+  const channel = member.guild.channels.find(ch => ch.name === '👋welcome-goodbye👋');
   if (!channel) return;
   let goodbyeembed = new Discord.RichEmbed()
   .setAuthor(member.user.username, member.user.displayAvatarURL)
