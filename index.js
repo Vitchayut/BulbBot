@@ -79,7 +79,7 @@ bot.on("message", async message => {
 
   if (foundInText) {
   if(message.member.hasPermission("MANAGE_MESSAGES")) return;
-  if(message.guild.id = "343572980351107077") return;
+  if(message.guild.id = process.env.guild) return;
       message.delete();
       let badword = new Discord.RichEmbed()
       .setAuthor(message.member.displayName, message.author.displayAvatarURL)
@@ -98,7 +98,7 @@ bot.on("message", async message => {
 
   if (foundInTextA) {
     if(message.member.hasPermission("MANAGE_MESSAGES")) return;
-    if(message.guild.id = "343572980351107077") return;
+    if(message.guild.id = process.env.guild) return;
     if (message.channel.name == '📢adversting📢') return;
       message.delete();
       let offsitestuff = new Discord.RichEmbed()
