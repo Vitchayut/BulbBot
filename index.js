@@ -25,9 +25,16 @@ fs.readdir("./commands/", (err, files) => {
 }); 
 
 
+function member_counter() {
+    // Member Counter
+    message.guild.channels.find(`id`, process.env.channel).setName(`Member Count : ` + message.guild.memberCount);
+}
+
+
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is loaded and online on ${bot.guilds.size} servers!`);
   bot.user.setActivity(`with _ItsNuaZ. | !help`);
+  setInterval(member_counter, 10000);
 });
 
 bot.on('guildMemberAdd', member => {
