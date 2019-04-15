@@ -9,9 +9,13 @@ For users who host a bot by themselves!
 
 [1] Replace **process.env.token** with your bot token. **(index.js)**
 
-[2] Replace **process.env.hypixel** with your hypixel api token. **(commands > hypixel.js)**
+[2] Replace **process.env.hypixel** with your hypixel api token. **(commands > hypixel.js) (UPCOMING FEATURE!)**
 
-[3] Replace **process.env.guild** with the guild ID that you want the swear filter to ignore. **(index.js)**
+[3] Replace **process.env.guild** with the guild ID that you want the **swear filter** to ignore. **(index.js)**
+
+[4] Replace **process.env.guildID** with the guild ID that you want the **member counter** feature. **(index.js)**
+
+[5] Replace **process.env.totalUsersID** with the channel ID that you want the **total users** feature. **(index.js)**
 
 Wanted to host a bot for 24/7 without using your own PC?
 
@@ -40,9 +44,9 @@ Read the **FAQ** below for Heroku users.
      
      [7] Select "Add" and you're done with the token.
      
-**Q: How do I get my own hypixel api token?**
+**Q: How do I get my own hypixel api token? (UPCOMING FEATURE!)**
 
-**A: Follow the instructions below.**
+**A: Follow the instructions below. (UPCOMING FEATURE!)**
 
      [1] Simply join hypixel, and then type "/api new".
      
