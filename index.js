@@ -129,7 +129,7 @@ bot.on("message", async message => {
   
   function member_counter() {
     // Member Counter
-    let counterchannel = message.guild.channels.find(ch => ch.id === process.env.channel);
+    let counterchannel = message.guild.channels.find(ch => ch.id === process.env.channel)
     counterchannel.setName(`Member Count : ` + message.guild.memberCount);
   }
   
