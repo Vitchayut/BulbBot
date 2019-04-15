@@ -1,6 +1,10 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const botconfig = require("./botconfig.json");
+const serverStats = {
+  guildID: '353858407389986826',
+  totalUsersID: '567176163202564096'
+};
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 let cooldown = new Set();
@@ -24,17 +28,10 @@ fs.readdir("./commands/", (err, files) => {
   
 }); 
 
-function member_counter () {
-    // Member Counter
-    const counterchannel = message.guild.channels.find(ch => ch.id === process.env.channel)
-    counterchannel.setName(`Member Count : ` + message.guild.memberCount);
-  }
-
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is loaded and online on ${bot.guilds.size} servers!`);
   bot.user.setActivity(`with _ItsNuaZ. | !help`);
-  // Interval
-  setInterval(member_counter, 60000);
+  
 });
 
 bot.on('guildMemberAdd', member => {
@@ -47,8 +44,14 @@ bot.on('guildMemberAdd', member => {
   .addField(`<:addMember:518733392402186240> Welcome to the server, **${member.user.tag}**`, `<a:cooldoge:511180988601073665> Thanks for joining with us, ${member}`)
   .setColor(`#409cd9`)
   channel.send(welcomeembed);
+  
+  // We also want to return if the member's guild isn't the same as the one with serverStats
+  if (member.guild.id !== serverStats.guildID) return;
+  
+  // Now, we want to update the voiceChannel names
+  bot.channels.get(serverStats.totalUsersID).setName(`Member Count : ${member.guild.memberCount}`);
+  
 });
-
 
 bot.on('guildMemberRemove', member => {
   const channel = member.guild.channels.find(ch => ch.name === '👋welcome👋');
@@ -59,6 +62,13 @@ bot.on('guildMemberRemove', member => {
   .addField(`<:remMember:518733397783347200> Goodbye, **${member.user.tag}**`, `<a:wave:512259019386126337> We hope to see you again, ${member}`)
   .setColor(`#ff3320`)
   channel.send(goodbyeembed);
+  
+  // We also want to return if the member's guild isn't the same as the one with serverStats
+  if (member.guild.id !== serverStats.guildID) return;
+  
+  // Now, we want to update the voiceChannel names
+  bot.channels.get(serverStats.totalUsersID).setName(`Member Count : ${member.guild.memberCount}`);
+  
 });
 
 bot.on("message", async message => {
