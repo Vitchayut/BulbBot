@@ -124,12 +124,14 @@ bot.on("message", async message => {
     cooldown.add(message.author.id);
   }
   
-  /**setInterval(member_counter, 10000);
+  // Interval
+  setInterval(member_counter, 100);
   
   function member_counter() {
     // Member Counter
-    message.guild.channels.find(ch => ch.id === process.env.channel).setName(`Member Count : ` + message.guild.memberCount);
-  }**/
+    let counterchannel = message.guild.channels.find(ch => ch.id === process.env.channel);
+    counterchannel.setName(`Member Count : ` + message.guild.memberCount);
+  }
   
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
