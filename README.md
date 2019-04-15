@@ -11,6 +11,8 @@ For users who host a bot by themselves!
 
 [2] Replace **process.env.hypixel** with your hypixel api token. **(commands > hypixel.js)**
 
+[3] Replace **process.env.guild** with the guild ID that you want the swear filter to ignore. **(index.js)**
+
 Wanted to host a bot for 24/7 without using your own PC?
 
 No problem!, You can also host a bot on Heroku!
