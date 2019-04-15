@@ -128,7 +128,7 @@ bot.on("message", async message => {
   
   function member_counter() {
     // Member Counter
-    message.guild.channels.find(`id`, process.env.channel).setName(`Member Count : ` + message.guild.memberCount);
+    message.guild.channels.find(ch => ch.id === process.env.channel).setName(`Member Count : ` + message.guild.memberCount);
   }
   
   let messageArray = message.content.split(" ");
