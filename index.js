@@ -127,11 +127,10 @@ bot.on("message", async message => {
   function member_counter() {
     // Member Counter
     message.guild.channels.find(ch => ch.id === process.env.channel).setName(`Member Count : ` + message.guild.memberCount);
-    //console.log(`Member Count : ` + message.guild.memberCount);
   }
   
   // Interval
-  setInterval(member_counter, 1000);
+  setInterval(member_counter, 60000);
   
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
