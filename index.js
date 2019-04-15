@@ -24,10 +24,17 @@ fs.readdir("./commands/", (err, files) => {
   
 }); 
 
+function member_counter () {
+    // Member Counter
+    const counterchannel = message.guild.channels.find(ch => ch.id === process.env.channel)
+    counterchannel.setName(`Member Count : ` + message.guild.memberCount);
+  }
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is loaded and online on ${bot.guilds.size} servers!`);
   bot.user.setActivity(`with _ItsNuaZ. | !help`);
+  // Interval
+  setInterval(member_counter, 60000);
 });
 
 bot.on('guildMemberAdd', member => {
@@ -123,14 +130,6 @@ bot.on("message", async message => {
   if(!message.member.hasPermission("MANAGE_MESSAGES")){
     cooldown.add(message.author.id);
   }
-  
-  function member_counter() {
-    // Member Counter
-    message.guild.channels.find(ch => ch.id === process.env.channel).setName(`Member Count : ` + message.guild.memberCount);
-  }
-  
-  // Interval
-  setInterval(member_counter, 60000);
   
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
