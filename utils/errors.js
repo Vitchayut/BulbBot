@@ -31,47 +31,47 @@ module.exports.botuser = (message) => {
     message.channel.send(embed).then(m => m.delete(8000));
 }
 
-module.exports.cantfindUser = (message) => {
+module.exports.cantfindUser = (message, channel) => {
     let embed = new Discord.RichEmbed()
         .setAuthor(message.member.displayName, message.author.displayAvatarURL)
         .setDescription("<:red_tick:566946004948090880> \`Could not find that user.\`")
         .setColor(config.red);
 
-    message.channel.send(embed).then(m => m.delete(8000));
+    channel.send(embed).then(m => m.delete(8000));
 }
 
-module.exports.cantfindUserID = (message) => {
+module.exports.cantfindUserID = (message, channel) => {
     let embed = new Discord.RichEmbed()
         .setAuthor(message.member.displayName, message.author.displayAvatarURL)
         .setDescription("<:red_tick:566946004948090880> \`Could not find that user.\`\n<a:Question:521253226754867224> \`Please enter a User ID to unban.\`")
         .setColor(config.red);
 
-    message.channel.send(embed).then(m => m.delete(8000));
+    channel.send(embed).then(m => m.delete(8000));
 }
 
-module.exports.noReason = (message) => {
+module.exports.noReason = (message, channel) => {
     let embed = new Discord.RichEmbed()
         .setAuthor(message.member.displayName, message.author.displayAvatarURL)
         .setDescription("<:red_tick:566946004948090880> \`Please supply a reason.\`")
         .setColor(config.red);
 
-    message.channel.send(embed).then(m => m.delete(8000));
+    channel.send(embed).then(m => m.delete(8000));
 }
 
-module.exports.onlyOwner = (message) => {
+module.exports.onlyOwner = (message, channel) => {
     let embed = new Discord.RichEmbed()
         .setColor(config.red)
         .setAuthor(message.member.displayName, message.author.displayAvatarURL)
         .setDescription("<:red_tick:566946004948090880> Only <@346102251632197632> can execute this command!");
 
-    message.channel.send(embed).then(m => m.delete(8000));
+    channel.send(embed).then(m => m.delete(8000));
 }
 
-module.exports.onlyDonator = (message) => {
+module.exports.onlyDonator = (message, channel) => {
     let embed = new Discord.RichEmbed()
         .setColor(config.red)
         .setAuthor(message.member.displayName, message.author.displayAvatarURL)
         .setDescription("<:red_tick:566946004948090880> Only donators can execute this command!");
 
-    message.channel.send(embed).then(m => m.delete(8000));
+    channel.send(embed).then(m => m.delete(8000));
 }
