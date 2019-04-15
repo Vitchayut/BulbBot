@@ -30,7 +30,7 @@ let channelnotdetect = new Discord.RichEmbed()
 .setAuthor(message.member.displayName, message.author.displayAvatarURL)
 .setColor(red)
 .setTimestamp()
-.setDescription(`<:red_tick:566946004948090880> \`Can't find logs channel, set a logs channel first!\`\n<a:righter_arrow:518744759506960406> \`Usage: !setlog (channel)\` <a:lefter_arrow:518744793489342464>`);
+.setDescription(`<:red_tick:566946004948090880> \`Can't find logs channel, set a logs channel first!\`\n<a:righter_arrow:518744759506960406> \`Usage: !setlog <channel>\` <a:lefter_arrow:518744793489342464>`);
 let rcs = JSON.parse(fs.readFileSync("./rcs.json", "utf8"));
 let reportschannel = "";
 if(rcs[message.guild.id]) reportschannel = message.guild.channels.find(c => c.name === rcs[message.guild.id].rc);
