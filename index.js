@@ -71,7 +71,7 @@ bot.on("message", async message => {
   let prefix = prefixes[message.guild.id].prefixes;
   
   // Blacklisted words.
-  /**let blacklisted = ["fuck", "faggot", "nigga", "nigger", "pussy", "rape", "dick", "pussi", "porn", "dildo", "nazi", "hitler", "penis", "boob", "cunt", "cum", "bitch", "nude", "cock", "twat", "hentai", "anal", "spank", "blowjob", "futanari", "vagina"];
+  let blacklisted = ["fuck", "faggot", "nigga", "nigger", "pussy", "rape", "dick", "pussi", "porn", "dildo", "nazi", "hitler", "penis", "boob", "cunt", "cum", "bitch", "nude", "cock", "twat", "hentai", "anal", "spank", "blowjob", "futanari", "vagina"];
   let foundInText = false;
   for (var i in blacklisted) {
       if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
@@ -79,6 +79,7 @@ bot.on("message", async message => {
 
   if (foundInText) {
   if(message.member.hasPermission("MANAGE_MESSAGES")) return;
+  if(message.guild.id = "343572980351107077") return;
       message.delete();
       let badword = new Discord.RichEmbed()
       .setAuthor(message.member.displayName, message.author.displayAvatarURL)
@@ -97,6 +98,7 @@ bot.on("message", async message => {
 
   if (foundInTextA) {
     if(message.member.hasPermission("MANAGE_MESSAGES")) return;
+    if(message.guild.id = "343572980351107077") return;
     if (message.channel.name == '📢adversting📢') return;
       message.delete();
       let offsitestuff = new Discord.RichEmbed()
@@ -105,7 +107,7 @@ bot.on("message", async message => {
       .setColor("#f44242")
       .addField("<:Content_Blocked:523798974876876810> \`Your message contains off-site links, deleted.\` <a:BoiGifFixed:511160003667689484>", message.author)
       message.channel.send(offsitestuff).then(msg => {msg.delete(10850)});
-  }**/
+  }
 
   if(!message.content.startsWith(prefix)) return;
   // Cooldown feature.
