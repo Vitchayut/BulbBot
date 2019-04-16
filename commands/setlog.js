@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   .setAuthor(message.member.displayName, message.author.displayAvatarURL)
   .setColor(config.red)
   .setTimestamp()
-  .setDescription(`<:red_tick:566946004948090880> \`Usage: --setlog <channel>\``);
+  .setDescription(`<:red_tick:566946004948090880> \`Usage: !setlog <channel>\``);
   if(!args[0] || args[0 == "help"]) return message.reply(errorembed);
 
   let rcs = JSON.parse(fs.readFileSync("./rcs.json", "utf8"));
@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
   .setColor(config.green)
   .setTimestamp()
   .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-  .setDescription(`<:green_tick:566945998761361408> \`New logs-channel set!\`\n\`Set to\` ${args[0]}`);
+  .setDescription(`<:green_tick:566945998761361408> \`New logs-channel set!\`\n:pencil: \`Set to\` ${args[0]}`);
 
   message.channel.send(rcEmbed);
   delete require.cache[require.resolve(`../rcs.json`)];
