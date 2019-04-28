@@ -51,7 +51,7 @@ bot.on('guildMemberAdd', member => {
   // Now, we want to update the voiceChannel names
   bot.channels.get(serverStats.totalUsersID).setName(`Member Count : ${member.guild.memberCount}`);
   
-  const dmchannel = member.author
+  const dmchannel = member
   if (!dmchannel) return;
   let dmembed = new Discord.RichEmbed()
   .setAuthor(member.user.username, member.user.displayAvatarURL)
