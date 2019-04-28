@@ -51,15 +51,15 @@ bot.on('guildMemberAdd', member => {
   // Now, we want to update the voiceChannel names
   bot.channels.get(serverStats.totalUsersID).setName(`Member Count : ${member.guild.memberCount}`);
   
-  const dm = member.author
-  if (!dm) return;
-  let welcomeembed = new Discord.RichEmbed()
+  const dmchannel = member.author
+  if (!dmchannel) return;
+  let dmembed = new Discord.RichEmbed()
   .setAuthor(member.user.username, member.user.displayAvatarURL)
   .setThumbnail(member.user.displayAvatarURL)
   .setTimestamp()
   .addField(`<a:cooldoge:511180988601073665> Thanks for joining with us, ${member.user.username}`, `<a:Confused_Dog:511180901934301204> To get verified, head over to <#499469631266881538> and type \`!verify\` to receive <@&426223113605480449>.`)
   .setColor(`#409cd9`)
-  channel.send(dm);
+  channel.send(dmembed);
   
 });
 
