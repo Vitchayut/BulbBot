@@ -8,7 +8,7 @@ const serverStats = {
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 let cooldown = new Set();
-let cdseconds = 5;
+let cdseconds = 3;
 
 fs.readdir("./commands/", (err, files) => {
   
@@ -35,6 +35,7 @@ bot.on("ready", async () => {
 });
 
 bot.on('guildMemberAdd', member => {
+  // Welcome message, with cool embed and custom emojis.
   const channel = member.guild.channels.find(ch => ch.name === '👋welcome-goodbye👋');
   if (!channel) return;
   let welcomeembed = new Discord.RichEmbed()
@@ -51,6 +52,7 @@ bot.on('guildMemberAdd', member => {
   // Now, we want to update the voiceChannel names
   bot.channels.get(serverStats.totalUsersID).setName(`Member Count : ${member.guild.memberCount}`);
   
+  // DM a new user, similar to the welcome-goodbye feature.
   const dmchannel = member
   if (!dmchannel) return;
   let dmembed = new Discord.RichEmbed()
@@ -64,6 +66,7 @@ bot.on('guildMemberAdd', member => {
 });
 
 bot.on('guildMemberRemove', member => {
+  // Goodbye message, with cool embed and custom emojis.
   const channel = member.guild.channels.find(ch => ch.name === '👋welcome-goodbye👋');
   if (!channel) return;
   let goodbyeembed = new Discord.RichEmbed()
@@ -144,7 +147,7 @@ bot.on("message", async message => {
     .setAuthor(message.member.displayName, message.author.displayAvatarURL)
     .setDescription("<a:hyperpinged:511872097304313859> Bot cooldown!")
     .setColor("#f44242")
-    .addField("<a:timer:511872188341682187> \`You have to wait for 5 seconds!\` <a:BoiGifFixed:511160003667689484>", message.author,true)
+    .addField("<a:timer:511872188341682187> \`You have to wait for 3 seconds!\` <a:BoiGifFixed:511160003667689484>", message.author,true)
     return message.channel.send(cooldownbotsystem).then(msg => {msg.delete(6850)});
   }
   if(!message.member.hasPermission("MANAGE_MESSAGES")){
