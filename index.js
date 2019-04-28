@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const botconfig = require("./botconfig.json");
-const antispam = require("discord-anti-spam");
 const serverStats = {
   guildID: process.env.guildID,
   totalUsersID: process.env.totalUsersID
@@ -10,17 +9,6 @@ const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 let cooldown = new Set();
 let cdseconds = 5;
-
-antispam(bot, {
-    warnBuffer: 3, //Maximum amount of messages allowed to send in the interval time before getting warned.
-    maxBuffer: 5, // Maximum amount of messages allowed to send in the interval time before getting banned.
-    interval: 1000, // Amount of time in ms users can send a maximum of the maxBuffer variable before getting banned.
-    warningMessage: "Hey, don't spam, this is your warning for spam!\n<a:hyperpinged:511872097304313859> You'll be banned if you continue.", // Warning message send to the user indicating they are going to fast.
-    banMessage: " was banned for spamming.\n<a:hyperpinged:511872097304313859>Listen to <@482795587045949440> next time.\n<a:cooldoge:511180988601073665> Would anyone else like a try?", // Ban message, always tags the banned user in front of it.
-    maxDuplicatesWarning: 7, // Maximum amount of duplicate messages a user can send in a timespan before getting warned
-    maxDuplicatesBan: 10, // Maximum amount of duplicate messages a user can send in a timespan before getting banned
-    deleteMessagesAfterBanForPastDays: 7 // Delete the spammed messages after banning for the past x days.
-});
 
 fs.readdir("./commands/", (err, files) => {
   
@@ -62,6 +50,16 @@ bot.on('guildMemberAdd', member => {
   
   // Now, we want to update the voiceChannel names
   bot.channels.get(serverStats.totalUsersID).setName(`Member Count : ${member.guild.memberCount}`);
+  
+  const dm = member.author
+  if (!dm) return;
+  let welcomeembed = new Discord.RichEmbed()
+  .setAuthor(member.user.username, member.user.displayAvatarURL)
+  .setThumbnail(member.user.displayAvatarURL)
+  .setTimestamp()
+  .addField(`<a:cooldoge:511180988601073665> Thanks for joining with us, ${member.user.username}`, `<a:Confused_Dog:511180901934301204> To get verified, head over to <#499469631266881538> and type \`!verify\` to receive <@&426223113605480449>.`)
+  .setColor(`#409cd9`)
+  channel.send(dm);
   
 });
 
