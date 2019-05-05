@@ -13,7 +13,7 @@ newsapi.v2.topHeadlines({
   country: 'us'
 }).then(response => {
   console.log(response);
-})
+});
 }
 
 }
