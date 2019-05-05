@@ -38,6 +38,7 @@ if(!reportschannel) return message.channel.send(channelnotdetect);
 
 message.delete().catch(O_o=>{});
 reportschannel.send(reportEmbed);
+message.channel.send(respondEmbed);
 
 }
 
