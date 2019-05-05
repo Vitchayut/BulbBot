@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
     .setAuthor(message.member.displayName, message.author.displayAvatarURL)
     .setColor(config.green)
     .setTimestamp()
-    .setDescription(`<:green_tick:566945998761361408> Successfully added the role, ${gRole} to \`${rMember.tag}\``);
+    .setDescription(`<:green_tick:566945998761361408> Successfully added the role, ${gRole} to <@${rMember.id}>`);
     message.channel.send(respondEmbed);
     
     let respondEmbedDM = new Discord.RichEmbed()
@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
     .setAuthor(message.member.displayName, message.author.displayAvatarURL)
     .setColor(config.green)
     .setTimestamp()
-    .setDescription(`<:green_tick:566945998761361408> Successfully added the role, ${gRole} to \`${rMember.tag}\``);
+    .setDescription(`<:green_tick:566945998761361408> Successfully added the role, ${gRole} to <@${rMember.id}>`);
     message.channel.send(respondEmbedGuild);
   }
 }
