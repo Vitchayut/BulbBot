@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     return;
   }
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-  if (!rMember) return errors.cantfindUser(message.channel);
+  if (!rMember) return errors.cantfindUser(message);
   let role = args.join(" ").slice(22);
   if (!role) return message.reply(`:no_entry: \`Specify a role!\``);
   let gRole = message.mentions.roles.first() || message.guild.roles.find(`name`, args[1]);
@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
   await (rMember.addRole(gRole.id));
 
   try {
-    await rMember.send(`<:green_tick:566945998761361408> \`You have been promoted to ${gRole.name}\``)
+    await rMember.send(`<:green_tick:566945998761361408> \`You got the new role, ${gRole.name}\``)
   } catch (e) {
     console.log(e.stack);
     message.channel.send(`<:green_tick:566945998761361408> \`Congrats to <@${rMember.id}>, they have been promoted to ${gRole.name}\nWe tried to DM them, but their DMs are locked.\``)
