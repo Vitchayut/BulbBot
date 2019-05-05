@@ -15,8 +15,6 @@ newsapi.v2.topHeadlines({
   console.log(response);
 });
 
-}
-
 module.exports.help = {
   name: "news"
 }
