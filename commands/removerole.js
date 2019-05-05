@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
   let gRole = message.mentions.roles.first() || message.guild.roles.find(`name`, args[1]);
   if (!gRole) return message.reply(`:no_entry: \`Couldn't find that role.\``);
 
-  if (rMember.roles.has(gRole.id)) return message.reply(`:no_entry: \`They already have that role.\``);
+  if (!rMember.roles.has(gRole.id)) return message.reply(`:no_entry: \`They don't have that role.\``);
   await (rMember.removeRole(gRole.id));
 
   try {
