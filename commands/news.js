@@ -19,7 +19,7 @@ newsapi.v2.topHeadlines({
       articles: [...]
     }
   */
-//});
+});
 
 });
 
