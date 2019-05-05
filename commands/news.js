@@ -19,8 +19,10 @@ newsapi.v2.topHeadlines({
       articles: [...]
     }
   */
-});
+})
+
+}
 
 module.exports.help = {
   name: "news"
-});
+}
