@@ -1,36 +1,35 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
-const botconfig = require("../botconfig.json");
-const red = botconfig.red;
-const green = botconfig.green;
-const orange = botconfig.orange;
-const gold = botconfig.gold;
+let config = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
 message.delete();
-if(!message.member.hasPermission("KICK_MEMBERS")) return errors.noPerms(message, "Kick Members");
 let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!rUser) return errors.cantfindUser(message);
-let rreason = args.join(" ").slice(22);
+let rReason = args.join(" ").slice(22);
+if(rUser.hasPermission("MANAGE_MESSAGES")) return errors.equalPerms(message, rUser, "Manage Messages");
 if(!args[0] || args[0] == "help"){
 message.reply(`:no_entry: \`Usage: !report <user> <reason>\``);
   return;
 }
 
+let respondEmbed = new Discord.RichEmbed()
+.setAuthor(message.member.displayName, message.author.displayAvatarURL)
+.setColor(config.green)
+.setTimestamp()
+.setDescription(`<:green_tick:566945998761361408> Successfully reported that user to the moderation team!\n:sunglasses::thumbsup: Thanks for your help!`)
+
 let reportEmbed = new Discord.RichEmbed()
 .setAuthor(`Report | ${rUser.user.tag}`, `${rUser.user.displayAvatarURL}`)
-.setColor(orange)
-.addField("Reported user", `${rUser}` ,true)
-.addField("Reported by", `${message.author}` ,true)
-.addField("Channel", message.channel ,true)
+.setColor(config.orange)
 .setTimestamp()
-.addField("Reason", rreason);
+.setDescription(`**Reported user:** ${rUser} (${rUser.id})\n**Reported by:** <@${message.author.id}> (${message.author.id})\n**Reason:** ${rReason}`)
 
 let channelnotdetect = new Discord.RichEmbed()
 .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-.setColor(red)
+.setColor(config.red)
 .setTimestamp()
-.setDescription(`<:red_tick:566946004948090880> \`Can't find logs channel, set a logs channel first!\`\n<a:righter_arrow:518744759506960406> \`Usage: !setlog <channel>\` <a:lefter_arrow:518744793489342464>`);
+.setDescription(`<:red_tick:566946004948090880> \`Can't find logs channel, set a logs channel first!\`\n<a:righter_arrow:518744759506960406> \`Usage: !setlog <channel>\` <a:lefter_arrow:518744793489342464>\n <a:Question:521253226754867224> If you dont have permission to do that action, then contact your staff member to do it!`);
 let rcs = JSON.parse(fs.readFileSync("./rcs.json", "utf8"));
 let reportschannel = "";
 if(rcs[message.guild.id]) reportschannel = message.guild.channels.find(c => c.name === rcs[message.guild.id].rc);
