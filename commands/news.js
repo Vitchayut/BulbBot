@@ -21,7 +21,9 @@ newsapi.v2.topHeadlines({
   */
 //});
 
-})
+});
+
+});
 
 }
 
