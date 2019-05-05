@@ -21,6 +21,13 @@ module.exports.run = async (bot, message, args) => {
   await (rMember.removeRole(gRole.id));
 
   try {
+    let respondEmbed = new Discord.RichEmbed()
+    .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+    .setColor(config.green)
+    .setTimestamp()
+    .setDescription(`<:green_tick:566945998761361408> Successfully removed the role, ${gRole} from \`${rMember.tag}\``);
+    message.channel.send(respondEmbed)
+    
     let respondEmbedDM = new Discord.RichEmbed()
     .setAuthor(message.member.displayName, message.author.displayAvatarURL)
     .setColor(config.red)
@@ -29,12 +36,12 @@ module.exports.run = async (bot, message, args) => {
     await rMember.send(respondEmbedDM)
   } catch (e) {
     console.log(e.stack);
-    let respondEmbed = new Discord.RichEmbed()
+    let respondEmbedGuild = new Discord.RichEmbed()
     .setAuthor(message.member.displayName, message.author.displayAvatarURL)
     .setColor(config.green)
     .setTimestamp()
     .setDescription(`<:green_tick:566945998761361408> Successfully removed the role, ${gRole} from \`${rMember.tag}\``);
-    message.channel.send(respondEmbed)
+    message.channel.send(respondEmbedGuild)
   }
 }
 
