@@ -1,9 +1,10 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
+let config = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
 
-  //!addrole @andrew Dog Person
+  //!addrole @andrew @Mod
   if (!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "Administrator");
   if (args[0] == "help") {
     message.reply(`:no_entry: \`Usage: !addrole <user> <role>\``);
@@ -20,10 +21,27 @@ module.exports.run = async (bot, message, args) => {
   await (rMember.addRole(gRole.id));
 
   try {
-    await rMember.send(`<:green_tick:566945998761361408> \`You got the new role, ${gRole.name}\``)
+    let respondEmbed = new Discord.RichEmbed()
+    .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+    .setColor(config.green)
+    .setTimestamp()
+    .setDescription(`<:green_tick:566945998761361408> Successfully added the role, ${gRole} to \`${rMember.tag}\``);
+    message.channel.send(respondEmbed);
+    
+    let respondEmbedDM = new Discord.RichEmbed()
+    .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+    .setColor(config.green)
+    .setTimestamp()
+    .setDescription(`<:green_tick:566945998761361408> \`You got the new role, ${gRole.name}\``);
+    await rMember.send(respondEmbedDM);
   } catch (e) {
     console.log(e.stack);
-    message.channel.send(`<:green_tick:566945998761361408> \`Congrats to <@${rMember.id}>, they have been promoted to ${gRole.name}\nWe tried to DM them, but their DMs are locked.\``)
+    let respondEmbedGuild = new Discord.RichEmbed()
+    .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+    .setColor(config.green)
+    .setTimestamp()
+    .setDescription(`<:green_tick:566945998761361408> Successfully added the role, ${gRole} to \`${rMember.tag}\``);
+    message.channel.send(respondEmbedGuild);
   }
 }
 
