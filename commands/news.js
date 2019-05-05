@@ -14,6 +14,7 @@ newsapi.v2.topHeadlines({
 }).then(response => {
   console.log(response);
 })
+})
 });
 
 }
