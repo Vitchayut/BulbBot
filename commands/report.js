@@ -4,7 +4,7 @@ const fs = require("fs");
 let config = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
-message.delete();
+
 let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!rUser) return errors.cantfindUser(message);
 let rReason = args.join(" ").slice(22);
