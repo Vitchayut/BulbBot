@@ -1,28 +1,33 @@
 const Discord = require("discord.js");
+const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true
+});
+const Money = require("../models/money.js");
 let config = require("../botconfig.json");
-let coins = require("../coins.json");
 
 module.exports.run = async (bot, message, args) => {
   //!coins
-  let user = message.mentions.users.first() || message.author;
-
-  if(user.bot) return message.reply(`:no_entry: \`You cannot do that with bots!\``);
+  await message.delete();
   
-  if(!coins[user.id]){
-    coins[user.id] = {
-      coins: 0
-    };
-  }
-  
-  let uCoins = coins[user.id].coins;
-  
-  let coinEmbed = new Discord.RichEmbed()
-  .setAuthor(user.username, user.displayAvatarURL)
-  .setColor(config.gold)
-  .setDescription(`<:dogecoin:419079613499703296> \`${uCoins}\``)
-  .setTimestamp();
-  
-  message.channel.send(coinEmbed);
+  Money.findOne({
+    userID: message.author.id, 
+    serverID: message.guild.id
+  }, (err, money) => {
+    if(err) console.log(err);
+    
+    let embed = new Discord.RichEmbed()
+    .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+    .setColor(config.gold)
+    .setDescription(``)
+    .setTimestamp();
+    if(!money){
+      embed.setDescription(`Coins: \`0\``);
+      return message.channel.send(embed);
+    }else {
+      embed.setDescription(`Coins: \`${money.money}\``);
+    }
+  })
   
 }
 
