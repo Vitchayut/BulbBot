@@ -25,7 +25,7 @@ module.exports.equalPerms = (message, user, perms) => {
 module.exports.botuser = (message) => {
     let embed = new Discord.RichEmbed()
         .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-        .setDescription("<:red_tick:566946004948090880> \`You cannot ban a bot!\`")
+        .setDescription(`<:red_tick:566946004948090880> \`You cannot ban a bot!\``)
         .setColor(config.red);
 
     message.channel.send(embed).then(m => m.delete(8000));
@@ -34,7 +34,7 @@ module.exports.botuser = (message) => {
 module.exports.cantfindUser = (message) => {
     let embed = new Discord.RichEmbed()
         .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-        .setDescription("<:red_tick:566946004948090880> \`Could not find that user.\`")
+        .setDescription(`<:red_tick:566946004948090880> \`Could not find that user.\``)
         .setColor(config.red);
 
     message.channel.send(embed).then(m => m.delete(8000));
@@ -43,7 +43,7 @@ module.exports.cantfindUser = (message) => {
 module.exports.cantfindUserID = (message) => {
     let embed = new Discord.RichEmbed()
         .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-        .setDescription("<:red_tick:566946004948090880> \`Could not find that user.\`\n<a:Question:521253226754867224> \`Please enter a User ID to unban.\`")
+        .setDescription(`<:red_tick:566946004948090880> \`Could not find that user.\`\n<a:Question:521253226754867224> \`Please enter a User ID to unban.\``)
         .setColor(config.red);
 
     message.channel.send(embed).then(m => m.delete(8000));
@@ -52,7 +52,7 @@ module.exports.cantfindUserID = (message) => {
 module.exports.noReason = (message) => {
     let embed = new Discord.RichEmbed()
         .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-        .setDescription("<:red_tick:566946004948090880> \`Please supply a reason.\`")
+        .setDescription(`<:red_tick:566946004948090880> \`Please supply a reason.\``)
         .setColor(config.red);
 
     message.channel.send(embed).then(m => m.delete(8000));
@@ -62,7 +62,7 @@ module.exports.onlyOwner = (message) => {
     let embed = new Discord.RichEmbed()
         .setColor(config.red)
         .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-        .setDescription("<:red_tick:566946004948090880> Only <@346102251632197632> can execute this command!");
+        .setDescription(`<:red_tick:566946004948090880> Only <@346102251632197632> can execute this command!`);
 
     message.channel.send(embed).then(m => m.delete(8000));
 }
@@ -71,7 +71,16 @@ module.exports.onlyDonator = (message) => {
     let embed = new Discord.RichEmbed()
         .setColor(config.red)
         .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-        .setDescription("<:red_tick:566946004948090880> Only donators can execute this command!");
+        .setDescription(`<:red_tick:566946004948090880> Only donators can execute this command!`);
+
+    message.channel.send(embed).then(m => m.delete(8000));
+}
+
+module.exports.cantreportAuthor = (message) => {
+    let embed = new Discord.RichEmbed()
+        .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+        .setDescription(`<:red_tick:566946004948090880> \`You cannot report yourself!\``)
+        .setColor(config.red);
 
     message.channel.send(embed).then(m => m.delete(8000));
 }
