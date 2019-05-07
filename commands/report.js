@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 
 let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!rUser) return errors.cantfindUser(message);
-if(rUser = message.member) return errors.cantreportAuthor(message);
+//if(rUser = something) return errors.cantreportAuthor(message);
 let rReason = args.join(" ").slice(22);
 if(rUser.hasPermission("MANAGE_MESSAGES")) return errors.equalPerms(message, rUser, "Manage Messages");
 if(!args[0] || args[0] == "help"){
