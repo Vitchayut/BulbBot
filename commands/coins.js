@@ -7,17 +7,21 @@ const Money = require("../models/money.js");
 let config = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
-  //!coins
+  //!coins Steve
   await message.delete();
   
+  let userBalance = message.mentions.users.first() || message.author;
+  
+  if(userBalance.bot) return message.reply(`:no_entry: \`You cannot do that with bots!\``);
+  
   Money.findOne({
-    userID: message.author.id, 
+    userID: userBalance.id, 
     serverID: message.guild.id
   }, (err, money) => {
     if(err) console.log(err);
     
     let embed = new Discord.RichEmbed()
-    .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+    .setAuthor(userBalance.username, userBalance.displayAvatarURL)
     .setColor(config.gold)
     .setTimestamp();
     if(!money){
