@@ -6,6 +6,8 @@ module.exports.run = async (bot, message, args) => {
   //!coins
   let user = message.mentions.users.first() || message.author;
 
+  if (user.id === bot.user.id) return message.reply(`:no_entry: \`You cannot do that with bots!\``);
+  
   if(!coins[user.id]){
     coins[user.id] = {
       coins: 0
