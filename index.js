@@ -7,6 +7,7 @@ const serverStats = {
 };
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
+let coins = require("./coins.json");
 let cooldown = new Set();
 let cdseconds = 3;
 
@@ -99,6 +100,13 @@ bot.on("message", async message => {
   }
   
   let prefix = prefixes[message.guild.id].prefixes;
+  
+  // Economy config.
+  if(!coins[message.author.id]){
+    coins[message.author.id] = {
+      coins: 0
+    };
+  }
   
   // Blacklisted words.
   let blacklisted = ["fuck", "faggot", "nigga", "nigger", "pussy", "rape", "dick", "pussi", "porn", "dildo", "nazi", "hitler", "penis", "boob", "cunt", "cum", "bitch", "nude", "cock", "twat", "hentai", "anal", "spank", "blowjob", "futanari", "vagina"];
