@@ -22,10 +22,10 @@ module.exports.run = async (bot, message, args) => {
     .setDescription(``)
     .setTimestamp();
     if(!money){
-      embed.setDescription(`Coins: \`0\``);
+      embed.setDescription(`<:dogecoin:419079613499703296> \`0\``);
       return message.channel.send(embed);
     }else {
-      embed.setDescription(`Coins: \`${money.money}\``);
+      embed.setDescription(`<:dogecoin:419079613499703296> \`${money.money}\``);
     }
   })
   
