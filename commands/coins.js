@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
   let uCoins = coins[user.id].coins;
   
   let coinEmbed = new Discord.RichEmbed()
-  .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+  .setAuthor(user.displayName, user.displayAvatarURL)
   .setColor(config.gold)
   .setDescription(`<:dogecoin:419079613499703296> \`${uCoins}\``)
   .setTimestamp();
