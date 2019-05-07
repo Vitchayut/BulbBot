@@ -1,6 +1,11 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const botconfig = require("./botconfig.json");
+const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true
+});
+const Money = require("./models/money.js");
 const serverStats = {
   guildID: process.env.guildID,
   totalUsersID: process.env.totalUsersID
