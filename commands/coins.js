@@ -19,7 +19,6 @@ module.exports.run = async (bot, message, args) => {
     let embed = new Discord.RichEmbed()
     .setAuthor(message.member.displayName, message.author.displayAvatarURL)
     .setColor(config.gold)
-    .setDescription(``)
     .setTimestamp();
     if(!money){
       embed.setDescription(`<:dogecoin:419079613499703296> \`0\``);
