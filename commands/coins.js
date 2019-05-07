@@ -8,8 +8,8 @@ module.exports.run = async (bot, message, args) => {
 	// If the user mentions someone, display their balance. If they just run the command without mentions, it will show their own balance.
     if (message.mentions.users.first()) {
       user = message.mentions.users.first();
-    } else {
-        user = message.author;
+    //} else {
+    //    user = message.author;
     }
     
   if(!coins[message.author.id]){
