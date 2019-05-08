@@ -29,15 +29,15 @@ module.exports.run = async (bot, message, args) => {
       if (err) console.log(err);
       if (!res || res.money < price) return message.reply(`:no_entry: \`Sorry but you don't have enough coins for that!\``).then(r => r.delete(10000));
       
-      /**Money.findOne({
+      Money.findOne({
         userID: target.id, 
         serverID: message.guild.id
       }, (err, targetres) => {
         if(err) console.log(err)
-        if(!targetres || targetres.money < price) return message.reply(`:no_entry: \`Sorry but the target doesn't have enough coins for that!\``).then(r => r.delete(10000));
+        //if(!targetres || targetres.money < price) return message.reply(`:no_entry: \`Sorry but the target doesn't have enough coins for that!\``).then(r => r.delete(10000));
      
         const filter = m => m.author.id === target.id;
-        message.channel.send(target + ` you have been challenged by ` + `\`${message.author.username}\`` + `!\nTo accept, type \`Accept\`.\nYou have 20 seconds!`).then(r => r.delete(20000));
+        message.channel.send(target + ` you have been offered <:dogecoin:419079613499703296> \`${price}\` by ` + `\`${message.author.username}\`` + `!\nTo accept, type \`Accept\`.\nYou have 20 seconds!`).then(r => r.delete(20000));
         message.channel.awaitMessages(filter, {
           max: 1,
           time: 20000
@@ -57,7 +57,7 @@ module.exports.run = async (bot, message, args) => {
               res.money = res.money - price;
               //embed.addField(`Winner`, target);
               //embed.addField(`Loser`, message.author);
-            }**/
+            }
             //end
             
             targetres.save().catch(err => console.log(err));
