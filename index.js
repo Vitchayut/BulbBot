@@ -13,8 +13,8 @@ const serverStats = {
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 //let coins = require("./coins.json");
-let cooldown = new Set();
-let cdseconds = 3;
+//let cooldown = new Set();
+//let cdseconds = 3;
 
 fs.readdir("./commands/", (err, files) => {
   
@@ -154,7 +154,7 @@ bot.on("message", async message => {
 
   //if(!message.content.startsWith(prefix)) return;
   // Cooldown feature.
-  if(cooldown.has(message.author.id)){
+  /**if(cooldown.has(message.author.id)){
     message.delete();
     let cooldownbotsystem = new Discord.RichEmbed()
     .setAuthor(message.member.displayName, message.author.displayAvatarURL)
@@ -165,7 +165,7 @@ bot.on("message", async message => {
   }
   if(!message.member.hasPermission("MANAGE_MESSAGES")){
     cooldown.add(message.author.id);
-  }
+  }**/
   
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
@@ -197,9 +197,9 @@ if (message.content.startsWith(prefix)) {
   })
 }  
 
-  setTimeout(() => {
+  /**setTimeout(() => {
     cooldown.delete(message.author.id)
-  }, cdseconds * 1000)
+  }, cdseconds * 1000)**/
 
 });
 
