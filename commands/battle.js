@@ -12,6 +12,7 @@ module.exports.run = async (bot, message, args) => {
   
   let target = message.mentions.members.first();
   if(!target) return message.reply(`:no_entry: \`Please mention a member to battle!\``).then(r => r.delete(10000));
+  if(target.id = message.author.id) return message.reply(`:no_entry: \`You cannot battle with yourself!\``);
   if(target.bot) return message.reply(`:no_entry: \`You cannot do that with bots!\``);
   let price = parseInt(args[1]);
   if(!price || isNaN(price) || price < 1) return message.reply(`:no_entry: \`Please try that again!\``).then(r => r.delete(10000));
