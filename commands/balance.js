@@ -8,7 +8,7 @@ let config = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
   //!balance Steve
-  await message.delete();
+  //await message.delete();
   
   let userBalance = message.mentions.users.first() || message.author;
   
