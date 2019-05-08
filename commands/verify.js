@@ -3,7 +3,7 @@ let config = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
 
-    message.delete();
+    await message.delete();
     let role = message.guild.roles.find(role => role.name === 'Verified Member ✔️');
     if (message.channel.name !== '✅verification✅') return message.reply(`:no_entry: \`You must go to the verification channel.\`\n<a:Question:521253226754867224> \`Or create a text channel named as ✅verification✅\``);
     message.member.addRole(role);
