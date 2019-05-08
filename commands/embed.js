@@ -5,7 +5,7 @@ let config = require("../botconfig.json");
 module.exports.run = async (bot, message, args) => {
 
 if(args[0] == "rules"){
-  message.delete();
+  await message.delete();
   if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
   let botmessage = args.slice(1).join(" ");
   let botembed = new Discord.RichEmbed()
@@ -17,7 +17,7 @@ if(args[0] == "rules"){
 }
 
 if(args[0] == "announce"){
-  message.delete();
+  await message.delete();
   if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
   let botmessage = args.slice(1).join(" ");
   let day = message.createdAt.getDate()
@@ -33,7 +33,7 @@ if(args[0] == "announce"){
 }
 
 if(args[0] == "default"){
-  message.delete();
+  await message.delete();
   if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
   let botmessage = args.slice(1).join(" ");
   let botembed = new Discord.RichEmbed()
