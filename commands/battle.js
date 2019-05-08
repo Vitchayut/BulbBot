@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
     serverID: message.guild.id
     }, (err, res) => {
       if(err) console.log(err);
-      if(!res || res.money) return message.reply(`:no_entry: \`Sorry but you don't have enough coins for that!\``).then(r => r.delete(10000));
+      if(!res || res.money < price) return message.reply(`:no_entry: \`Sorry but you don't have enough coins for that!\``).then(r => r.delete(10000));
       
       Money.findOne({
         userID: target.id, 
