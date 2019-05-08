@@ -8,7 +8,7 @@ const orange = botconfig.orange;
 const gold = botconfig.gold;
 
 module.exports.run = async (bot, message, args) => {
-message.delete();
+//await message.delete();
 if(!message.member.hasPermission("KICK_MEMBERS")) return errors.noPerms(message, "Kick Members");
 let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!kUser) return errors.cantfindUser(message);
