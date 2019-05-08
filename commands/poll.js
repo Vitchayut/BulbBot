@@ -4,7 +4,7 @@ let config = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
   
-  message.delete();
+  await message.delete();
   if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "Administrator");
   if (!args[0]) return message.channel.send(`:no_entry: \`Please include a question.\``);
   const agree = bot.emojis.find(emoji => emoji.name === "green_tick");
