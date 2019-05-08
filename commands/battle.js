@@ -44,16 +44,16 @@ module.exports.run = async (bot, message, args) => {
           if (collected.first().content.toLowerCase() === 'cancel') return message.reply(`:white_check_mark: \`Canceled!\``).then(r => r.delete(10000));
           if (collected.first().content.toLowerCase() === 'accept'){
             let chance = Math.floor(Math.random * 100) + 1;
-            if(chance <50){
+            if(chance < 50){
               //sender wins
               targetres.money = targetres.money - price;
-              res.coins = res.coins + price;
+              res.money = res.money + price;
               embed.addField(`Winner`, message.author);
               embed.addField(`Loser`, target);
             }else{
               //target wins
               targetres.money = targetres.money + price;
-              res.coins = res.coins - price;
+              res.money = res.money - price;
               embed.addField(`Winner`, target);
               embed.addField(`Loser`, message.author);
             }
