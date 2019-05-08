@@ -176,7 +176,7 @@ if (message.content.startsWith(prefix)) {
   if(commandfile) commandfile.run(bot, message, args);
 } else {
   let coinsToAdd = Math.ceil(Math.random() * 50);
-  console.log(coinsToAdd + " coins");
+  //console.log(coinsToAdd + " coins");
   Money.findOne({
     userID: message.author.id,
     serverID: message.guild.id
