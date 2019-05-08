@@ -152,7 +152,7 @@ bot.on("message", async message => {
       message.channel.send(offsitestuff).then(msg => {msg.delete(10850)});
   }
 
-  if(!message.content.startsWith(prefix)) return;
+  //if(!message.content.startsWith(prefix)) return;
   // Cooldown feature.
   if(cooldown.has(message.author.id)){
     message.delete();
