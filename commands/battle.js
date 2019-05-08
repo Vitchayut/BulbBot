@@ -25,8 +25,8 @@ module.exports.run = async (bot, message, args) => {
     userID: message.author.id, 
     serverID: message.guild.id
     }, (err, res) => {
-      if(err) console.log(err);
-      if(!res || res.money < price) return message.reply(`:no_entry: \`Sorry but you don't have enough coins for that!\``).then(r => r.delete(10000));
+      if (err) console.log(err);
+      if (!res || res.money < price) return message.reply(`:no_entry: \`Sorry but you don't have enough coins for that!\``).then(r => r.delete(10000));
       
       Money.findOne({
         userID: target.id, 
@@ -36,21 +36,21 @@ module.exports.run = async (bot, message, args) => {
         if(!targetres || targetres.money < price) return message.reply(`:no_entry: \`Sorry but the target doesn't have enough coins for that!\``).then(r => r.delete(10000));
      
         const filter = m => m.author.id === target.id;
-        message.channel.send(target + ` you have been challenged by ` + `\`${message.author.username}\`` + `!\nTo accept, type \`Accept\`.\nYou have 10 seconds!`).then(r => r.delete(10000));
+        message.channel.send(target + ` you have been challenged by ` + `\`${message.author.username}\`` + `!\nTo accept, type \`Accept\`.\nYou have 20 seconds!`).then(r => r.delete(10000));
         message.channel.awaitMessages(filter, {
-          max: 1, 
-          time: 10000
+          max: 1,
+          time: 20000
         }).then(collected => {
           if (collected.first().content.toLowerCase() === 'cancel') return message.reply(`:white_check_mark: \`Canceled!\``).then(r => r.delete(10000));
           if (collected.first().content.toLowerCase() === 'accept'){
             let chance = Math.floor(Math.random * 100) + 1;
-            if(chance < 50){
+            if (chance < 50) {
               //sender wins
               targetres.money = targetres.money - price;
               res.money = res.money + price;
               embed.addField(`Winner`, message.author);
               embed.addField(`Loser`, target);
-            }else{
+            } else {
               //target wins
               targetres.money = targetres.money + price;
               res.money = res.money - price;
@@ -65,7 +65,7 @@ module.exports.run = async (bot, message, args) => {
           }
         }).catch(err => {
           console.log(err)
-          message.reply(`:no_entry: \`Time limit exceeded\``).then(r => r.delete(5000));
+          message.reply(`:no_entry: \`Time limit exceeded.\``).then(r => r.delete(5000));
         })
      
       })
