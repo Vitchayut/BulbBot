@@ -29,6 +29,7 @@ module.exports.run = async (bot, message, args) => {
       return message.channel.send(embed);
     }else {
       embed.setDescription(`<:dogecoin:419079613499703296> \`${money.money}\``);
+      return message.channel.send(embed);
     }
   })
   
