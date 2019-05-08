@@ -17,9 +17,9 @@ module.exports.run = async (bot, message, args) => {
   if(!price || isNaN(price) || price < 1) return message.reply(`:no_entry: \`Please try that again!\``).then(r => r.delete(10000));
   
   let embed = new Discord.RichEmbed()
-    .setColor(config.gold)
+    .setColor(config.green)
     .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-    .setDescription(`Successfully paid <:dogecoin:419079613499703296> \`${price}\` to ${target}`)
+    .setDescription(`<:green_tick:566945998761361408> Successfully paid <:dogecoin:419079613499703296> \`${price}\` to ${target}`)
     .setTimestamp();
     
   Money.findOne({
@@ -36,14 +36,14 @@ module.exports.run = async (bot, message, args) => {
         if(err) console.log(err)
         //if(!targetres || targetres.money < price) return message.reply(`:no_entry: \`Sorry but the target doesn't have enough coins for that!\``).then(r => r.delete(10000));
      
-        const filter = m => m.author.id === target.id;
-        message.channel.send(target + ` you have been offered <:dogecoin:419079613499703296> \`${price}\` by ` + `\`${message.author.username}\`` + `!\nTo accept, type \`Accept\`.\nYou have 20 seconds!`).then(r => r.delete(20000));
+        /**const filter = m => m.author.id === target.id;
+        message.channel.send(target + ` you have been offered for <:dogecoin:419079613499703296> \`${price}\` by ` + `\`${message.author.username}\`` + `!\nTo accept, type \`Accept\`.\nYou have 20 seconds!`).then(r => r.delete(20000));
         message.channel.awaitMessages(filter, {
           max: 1,
           time: 20000
         }).then(collected => {
           if (collected.first().content.toLowerCase() === 'cancel') return message.reply(`:white_check_mark: \`Canceled!\``).then(r => r.delete(10000));
-          if (collected.first().content.toLowerCase() === 'accept'){
+          if (collected.first().content.toLowerCase() === 'accept'){**/
             let chance = Math.floor(Math.random * 100) + 1;
             if (chance < 50) {
               //sender wins
