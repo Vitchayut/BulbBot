@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
         if(!targetres || targetres.money < price) return message.reply(`:no_entry: \`Sorry but the target doesn't have enough coins for that!\``).then(r => r.delete(10000));
      
         const filter = m => m.author.id === target.id;
-        message.channel.send(target + ` you have been challenged by ` + `\`${message.author.username}\`` + `!\nTo accept, type \`Accept\`.\nYou have 20 seconds!`).then(r => r.delete(10000));
+        message.channel.send(target + ` you have been challenged by ` + `\`${message.author.username}\`` + `!\nTo accept, type \`Accept\`.\nYou have 20 seconds!`).then(r => r.delete(20000));
         message.channel.awaitMessages(filter, {
           max: 1,
           time: 20000
