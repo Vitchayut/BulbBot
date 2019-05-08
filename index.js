@@ -172,8 +172,29 @@ bot.on("message", async message => {
   let args = messageArray.slice(1);
   
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
-  if(commandfile) commandfile.run(bot,message,args);
-  
+  if(commandfile) commandfile.run(bot, message, args);
+} else {
+  let coinstoadd = Math.ceil(Math.random() * 50);
+  Money.findOne({
+    userID: message.author.id,
+    serverID: message.guild.id
+  }, (err, money) => {
+    if(err) console.log(err);
+    if(!money){
+      const newMoney = new Money({
+        userID: message.author.id,
+        serverID: message.guild.id,
+        money: coinstoadd
+      })
+      
+      newMoney.save().catch(err => console.log(err));
+    }else {
+      money.money = money.money + coinstoadd;
+      money.save().catch(err => console.log(err));
+    }
+  })
+}  
+
   setTimeout(() => {
     cooldown.delete(message.author.id)
   }, cdseconds * 1000)
