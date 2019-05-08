@@ -36,14 +36,14 @@ module.exports.run = async (bot, message, args) => {
         if(err) console.log(err)
         //if(!targetres || targetres.money < price) return message.reply(`:no_entry: \`Sorry but the target doesn't have enough coins for that!\``).then(r => r.delete(10000));
      
-        /**const filter = m => m.author.id === target.id;
-        message.channel.send(target + ` you have been offered for <:dogecoin:419079613499703296> \`${price}\` by ` + `\`${message.author.username}\`` + `!\nTo accept, type \`Accept\`.\nYou have 20 seconds!`).then(r => r.delete(20000));
+        const filter = m => m.author.id === target.id;
+        message.channel.send(target + ` , \`${message.author.tag}\` wants to donate you for <:dogecoin:419079613499703296> \`${price}\` + ``!\nPlease show you're not a robot, by typing \`${message.author.tag}\` **without their tags**! \`EG: _ItsNuaZ\`.\nYou have 30 seconds!`).then(r => r.delete(30000));
         message.channel.awaitMessages(filter, {
           max: 1,
           time: 20000
         }).then(collected => {
-          if (collected.first().content.toLowerCase() === 'cancel') return message.reply(`:white_check_mark: \`Canceled!\``).then(r => r.delete(10000));
-          if (collected.first().content.toLowerCase() === 'accept'){**/
+          if (collected.first().content.toLowerCase() === 'cancel') return message.reply(`<:green_tick:566945998761361408> \`Canceled!\``).then(r => r.delete(10000));
+          if (collected.first().content.toLowerCase() === message.author.username){
             let chance = Math.floor(Math.random * 100) + 1;
             if (chance < 50) {
               //sender wins
