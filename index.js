@@ -175,7 +175,8 @@ if (message.content.startsWith(prefix)) {
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(bot, message, args);
 } else {
-  let coinstoadd = Math.ceil(Math.random() * 50);
+  let coinsToAdd = Math.ceil(Math.random() * 50);
+  console.log(coinsToAdd + " coins");
   Money.findOne({
     userID: message.author.id,
     serverID: message.guild.id
@@ -185,12 +186,12 @@ if (message.content.startsWith(prefix)) {
       const newMoney = new Money({
         userID: message.author.id,
         serverID: message.guild.id,
-        money: coinstoadd
+        money: coinsToAdd
       })
       
       newMoney.save().catch(err => console.log(err));
     }else {
-      money.money = money.money + coinstoadd;
+      money.money = money.money + coinsToAdd;
       money.save().catch(err => console.log(err));
     }
   })
