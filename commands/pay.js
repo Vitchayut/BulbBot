@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
         //if(!targetres || targetres.money < price) return message.reply(`:no_entry: \`Sorry but the target doesn't have enough coins for that!\``).then(r => r.delete(10000));
      
         const filter = m => m.author.id === target.id;
-        message.channel.send(target + ` , \`${message.author.tag}\` wants to donate you for <:dogecoin:419079613499703296> \`${price}\` + ``!\nPlease show you're not a robot, by typing \`${message.author.tag}\` **without their tags**! \`EG: _ItsNuaZ\`.\nYou have 30 seconds!`).then(r => r.delete(30000));
+        message.channel.send(target + ` , \`${message.author.tag}\` wants to donate you for <:dogecoin:419079613499703296> \`${price}\`` + `\nPlease show you're not a robot, by typing \`${message.author.tag}\` **without their tags**! \`EG: _ItsNuaZ\`.\nYou have 30 seconds!`).then(r => r.delete(30000));
         message.channel.awaitMessages(filter, {
           max: 1,
           time: 20000
