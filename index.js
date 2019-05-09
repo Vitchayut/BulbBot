@@ -114,7 +114,7 @@ bot.on("message", async message => {
   }**/
   
   // Blacklisted words.
-  let blacklisted = ["fuck", "faggot", "nigga", "nigger", "pussy", "rape", "dick", "pussi", "porn", "dildo", "nazi", "hitler", "penis", "boob", "cunt", "cum", "bitch", "nude", "cock", "twat", "hentai", "anal", "spank", "blowjob", "futanari", "vagina"];
+  let blacklisted = ["fuck", "faggot", "nigga", "nigger", "pussy", "rape", "dick", "pussi", "porn", "dildo", "nazi", "hitler", "penis", "boob", "cunt", "cum", "bitch", "nude", "cock", "twat", "hentai", "anal", "spank", "blowjob", "futanari", "vagina", "lordshibedespacito"];
   let foundInText = false;
   for (var i in blacklisted) {
       if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
@@ -175,6 +175,7 @@ if (message.content.startsWith(prefix)) {
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(bot, message, args);
 } else {
+  if(message.guild.id = process.env.guild) return;
   let coinsToAdd = Math.ceil(Math.random() + 1);
   //console.log(coinsToAdd + " coins");
   Money.findOne({
