@@ -5,7 +5,7 @@ let config = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
 
-let aReason = args.join(" ").slice(22);
+let aReason = args.slice(0).join(" ");
 if(!args[0] || args[0] == "help"){
 message.reply(`:no_entry: \`Usage: !apply <application form>\``);
   return;
