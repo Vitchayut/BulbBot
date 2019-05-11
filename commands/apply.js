@@ -18,7 +18,7 @@ let respondEmbed = new Discord.RichEmbed()
 .setDescription(`<:green_tick:566945998761361408> Successfully sent your application form to the HRs!\n:sunglasses::thumbsup: Please be patient!`);
 
 let applyEmbed = new Discord.RichEmbed()
-.setAuthor(`Application Form | ${rUser.user.tag}`, `${rUser.user.displayAvatarURL}`)
+.setAuthor(`Application Form | ${message.author.tag}`, `${message.author.displayAvatarURL}`)
 .setColor(config.blue)
 .setTimestamp()
 .setDescription(`**:airplane: Siam Smile:**\n${aReason}`);
