@@ -169,7 +169,7 @@ bot.on("message", async message => {
       message.channel.send(respondembed);
   }
 
-  if(!message.content.startsWith(prefix)) //return;
+  //if(!message.content.startsWith(prefix)) return;
   // Cooldown feature.
   /**if(cooldown.has(message.author.id)){
     message.delete();
@@ -188,7 +188,7 @@ bot.on("message", async message => {
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
   
-//if (message.content.startsWith(prefix)) {
+if (message.content.startsWith(prefix)) {
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(bot, message, args);
 } else {
