@@ -152,10 +152,11 @@ bot.on("message", async message => {
       message.channel.send(offsitestuff).then(msg => {msg.delete(10850)});
   }
 
-  if(!message.content.startsWith(prefix)) return;
+  //if(!message.content.startsWith(prefix)) return;
   // Cooldown feature.
-  /**if(cooldown.has(message.author.id)){
-    message.delete();
+  if(cooldown.has(message.author.id)){
+    if(message.guild.id = process.env.guild) return;
+    await message.delete();
     let cooldownbotsystem = new Discord.RichEmbed()
     .setAuthor(message.member.displayName, message.author.displayAvatarURL)
     .setDescription("<a:hyperpinged:511872097304313859> Bot cooldown!")
@@ -165,16 +166,16 @@ bot.on("message", async message => {
   }
   if(!message.member.hasPermission("MANAGE_MESSAGES")){
     cooldown.add(message.author.id);
-  }**/
+  }
   
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
   
-//if (message.content.startsWith(prefix)) {
+if (message.content.startsWith(prefix)) {
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(bot, message, args);
-/**} else {
+} else {
   if(message.guild.id === process.env.guild) return;
   let coinsToAdd = Math.ceil(Math.random() + 1);
   //console.log(coinsToAdd + " coins");
@@ -196,11 +197,11 @@ bot.on("message", async message => {
       money.save().catch(err => console.log(err));
     }
   })
-}**/  
+}
 
-  /**setTimeout(() => {
+  setTimeout(() => {
     cooldown.delete(message.author.id)
-  }, cdseconds * 1000)**/
+  }, cdseconds * 1000)
 
 });
 
