@@ -13,8 +13,8 @@ const serverStats = {
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 //let coins = require("./coins.json");
-//let cooldown = new Set();
-//let cdseconds = 3;
+let cooldown = new Set();
+let cdseconds = 3;
 
 fs.readdir("./commands/", (err, files) => {
   
