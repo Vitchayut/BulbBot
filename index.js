@@ -151,23 +151,6 @@ bot.on("message", async message => {
       .addField("<:Content_Blocked:523798974876876810> \`Your message contains off-site links, deleted.\` <a:BoiGifFixed:511160003667689484>", message.author)
       message.channel.send(offsitestuff).then(msg => {msg.delete(10850)});
   }
-  
-  // New respond AI.
-  let wordsAI = ["Hello, <@482795587045949440>", "Hi, <@482795587045949440>", "Sup, <@482795587045949440>", "Wassup, <@482795587045949440>", "Hi <@482795587045949440>", "Hello <@482795587045949440>", "Sup <@482795587045949440>", "Wassup <@482795587045949440>"];
-  let foundInTextAI = false;
-  for (var i in wordsAI) {
-      if (message.content.toLowerCase().includes(wordsAI[i].toLowerCase())) foundInTextAI = true;
-  }
-
-  if (foundInTextAI) {
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return;
-    //if(message.guild.id = process.env.guild) return;
-      let respondembed = new Discord.RichEmbed()
-      .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-      .setDescription(`Hello there! ${message.author}`)
-      .setColor("#f44242")
-      message.channel.send(respondembed);
-  }
 
   if(!message.content.startsWith(prefix)) return;
   // Cooldown feature.
