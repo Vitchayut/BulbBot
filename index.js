@@ -169,7 +169,7 @@ bot.on("message", async message => {
       message.channel.send(respondembed);
   }
 
-  if(!message.content.startsWith(prefix)) return;
+  if(!message.content.startsWith(prefix)) //return;
   // Cooldown feature.
   /**if(cooldown.has(message.author.id)){
     message.delete();
