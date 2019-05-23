@@ -162,6 +162,7 @@ bot.on("message", async message => {
     .setDescription("<a:hyperpinged:511872097304313859> Bot cooldown!")
     .setColor("#f44242")
     .addField("<a:timer:511872188341682187> \`You have to wait for 3 seconds!\` <a:BoiGifFixed:511160003667689484>", message.author,true)
+    await delay(100);
     return message.channel.send(cooldownbotsystem).then(msg => {msg.delete(6850)});
   }
   if(!message.member.hasPermission("MANAGE_MESSAGES")){
