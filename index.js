@@ -152,7 +152,7 @@ bot.on("message", async message => {
       message.channel.send(offsitestuff).then(msg => {msg.delete(10850)});
   }
 
-  //if(!message.content.startsWith(prefix)) return;
+  if(!message.content.startsWith(prefix)) return;
   // Cooldown feature.
   if(cooldown.has(message.author.id)){
     if(message.guild.id = process.env.guild) return;
@@ -162,7 +162,6 @@ bot.on("message", async message => {
     .setDescription("<a:hyperpinged:511872097304313859> Bot cooldown!")
     .setColor("#f44242")
     .addField("<a:timer:511872188341682187> \`You have to wait for 3 seconds!\` <a:BoiGifFixed:511160003667689484>", message.author,true)
-    await delay(100);
     return message.channel.send(cooldownbotsystem).then(msg => {msg.delete(6850)});
   }
   if(!message.member.hasPermission("MANAGE_MESSAGES")){
@@ -173,10 +172,10 @@ bot.on("message", async message => {
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
   
-if (message.content.startsWith(prefix)) {
+//if (message.content.startsWith(prefix)) {
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(bot, message, args);
-} else {
+/**} else {
   if(message.guild.id === process.env.guild) return;
   let coinsToAdd = Math.ceil(Math.random() + 1);
   //console.log(coinsToAdd + " coins");
@@ -198,7 +197,7 @@ if (message.content.startsWith(prefix)) {
       money.save().catch(err => console.log(err));
     }
   })
-}
+}**/
 
   setTimeout(() => {
     cooldown.delete(message.author.id)
