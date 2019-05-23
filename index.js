@@ -161,7 +161,7 @@ bot.on("message", async message => {
 
   if (foundInTextAI) {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return;
-    if(message.guild.id = process.env.guild) return;
+    //if(message.guild.id = process.env.guild) return;
       let respondembed = new Discord.RichEmbed()
       .setAuthor(message.member.displayName, message.author.displayAvatarURL)
       .setDescription(`Hello there! ${message.author}`)
