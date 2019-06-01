@@ -175,11 +175,11 @@ bot.on("message", async message => {
 //if (message.content.startsWith(prefix)) {
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(bot, message, args);
-//} else {
+/**} else {
   if(message.guild.id === process.env.guild) return;
   let coinsToAdd = Math.ceil(Math.random() + 1);
   //console.log(coinsToAdd + " coins");
-  /**Money.findOne({
+  Money.findOne({
     userID: message.author.id,
     serverID: message.guild.id
   }, (err, money) => {
