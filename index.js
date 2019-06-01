@@ -1,11 +1,11 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const botconfig = require("./botconfig.json");
-const mongoose = require("mongoose");
+/**const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true
 });
-const Money = require("./models/money.js");
+const Money = require("./models/money.js");**/
 const serverStats = {
   guildID: process.env.guildID,
   totalUsersID: process.env.totalUsersID
@@ -122,7 +122,7 @@ bot.on("message", async message => {
 
   if (foundInText) {
   if(message.member.hasPermission("MANAGE_MESSAGES")) return;
-  if(message.guild.id = process.env.guild) return;
+  if(message.guild.id == process.env.guild) return;
       message.delete();
       let badword = new Discord.RichEmbed()
       .setAuthor(message.member.displayName, message.author.displayAvatarURL)
@@ -141,7 +141,7 @@ bot.on("message", async message => {
 
   if (foundInTextA) {
     if(message.member.hasPermission("MANAGE_MESSAGES")) return;
-    if(message.guild.id = process.env.guild) return;
+    if(message.guild.id == process.env.guild) return;
     if (message.channel.name == '📢adversting📢') return;
       message.delete();
       let offsitestuff = new Discord.RichEmbed()
@@ -155,7 +155,7 @@ bot.on("message", async message => {
   if(!message.content.startsWith(prefix)) return;
   // Cooldown feature.
   if(cooldown.has(message.author.id)){
-    if(message.guild.id = process.env.guild) return;
+    if(message.guild.id == process.env.guild) return;
     await message.delete();
     let cooldownbotsystem = new Discord.RichEmbed()
     .setAuthor(message.member.displayName, message.author.displayAvatarURL)
