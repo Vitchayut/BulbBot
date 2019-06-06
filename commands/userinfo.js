@@ -11,6 +11,10 @@ module.exports.run = async (bot, message, args) => {
 	// Define the member of a guild.
     const member = message.guild.member(user);
 
+    if user.presence.status = `online`
+    	let userStatus = `<:discord_online:553168186925907980>`
+    }
+	
 	// Discord rich embed
     const embed = new Discord.RichEmbed()
     .setColor('RANDOM')
@@ -20,9 +24,9 @@ module.exports.run = async (bot, message, args) => {
     .addField(`:card_index: \`User ID\``, `\`${user.id}\``, true)
     .addField(`<:nickname:523830992075620353> \`Nickname\``, `\`${member.nickname !== null ? `${member.nickname}` : 'None'}\``, true)
     .addField(`<:bot:511515593107570699> \`Bot Account\``, `\`${user.bot}\``, true)
-    .addField(`<:discord_online:553168186925907980> \`User Status\``, `\`${user.presence.status}\``, true)
+    .addField(`:signal_strength: \`User Status\``, `${userStatus} \`${user.presence.status}\``, true)
     .addField(`:video_game: \`User Activity\``, `\`${user.presence.game ? user.presence.game.name : 'None'}\``, true)
-    .addField(`:label: \`Roles\``, member.roles.map(roles => `<@&${roles.id}>`).slice(1).join(', '), true)
+    .addField(`:label: \`Roles\``, member.roles.map(roles => `<@&${roles.id}>`).slice(1).join(' | '), true)
     .addField(`:calendar: \`Joined Guild Date\``, `\`${member.joinedAt}\``, true)
     .addField(`:calendar: \`Account Creation Date\``, `\`${user.createdAt}\``, true)
     .setFooter(`💬 Replying to ${message.author.username}#${message.author.discriminator}`)
