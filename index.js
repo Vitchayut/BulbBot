@@ -10,7 +10,7 @@ const serverStats = {
   guildID: process.env.guildID,
   totalUsersID: process.env.totalUsersID
 };
-const bot = new Discord.Client({disableEveryone: true});
+const bot = new Discord.Client({disableEveryone: false});
 bot.commands = new Discord.Collection();
 //let coins = require("./coins.json");
 let cooldown = new Set();
