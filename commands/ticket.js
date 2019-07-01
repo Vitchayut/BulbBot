@@ -39,8 +39,8 @@ module.exports.run = async (bot, message, args) => {
     var embedCreateTicket = new discord.RichEmbed()
         .setAuthor(message.member.displayName, message.author.displayAvatarURL)
         .setColor(config.blue)
-        .setFooter(`New ticket created!`);
-        .setTimestamp()
+        .setFooter(`New ticket created!`)
+        .setTimestamp();
 
     message.channel.send(embedCreateTicket);
 
