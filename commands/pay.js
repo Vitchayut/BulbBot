@@ -7,20 +7,20 @@ const Money = require("../models/money.js");
 let config = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
-  //!pay Steve 300
+  //!battle Steve 100
   //await message.delete();
   
   let target = message.mentions.members.first();
   if(!target) return message.reply(`:no_entry: \`Please mention a member to donate!\``).then(r => r.delete(10000));
   if(target.bot) return message.reply(`:no_entry: \`You cannot do that with bots!\``);
-  if(target.id === message.author.id) return message.reply(`:no_entry: \`You cannot donate to yourself!\``);
+  if(target.id === message.author.id) return message.reply(`:no_entry: \`You cannot donate a money to yourself!\``);
   let price = parseInt(args[1]);
   if(!price || isNaN(price) || price < 1) return message.reply(`:no_entry: \`Please try that again!\``).then(r => r.delete(10000));
   
   let embed = new Discord.RichEmbed()
-    .setColor(config.green)
+    .setColor(config.gold)
     .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-    .setDescription(`<:green_tick:566945998761361408> Successfully paid <:dogecoin:419079613499703296> \`${price}\` to ${target}`)
+    .setDescription(`<:dogecoin:419079613499703296> ` + `\`${price}\`` + ` coins donated!`)
     .setTimestamp();
     
   Money.findOne({
@@ -38,26 +38,26 @@ module.exports.run = async (bot, message, args) => {
         //if(!targetres || targetres.money < price) return message.reply(`:no_entry: \`Sorry but the target doesn't have enough coins for that!\``).then(r => r.delete(10000));
      
         const filter = m => m.author.id === target.id;
-        message.channel.send(target + ` , \`${message.author.tag}\` wants to donate you for <:dogecoin:419079613499703296> \`${price}\`` + `\nPlease show you're not a robot, by answering the following equation: \`15+15\`\nYou have 30 seconds!`).then(r => r.delete(30000));
+        message.channel.send(target + ` you have been offered to be given <:dogecoin:419079613499703296> \`${price}\` from ` + `\`${message.author.username}\`` + `!\nTo accept the donation, type \`Accept\`.\nYou have 30 seconds!`).then(r => r.delete(30000));
         message.channel.awaitMessages(filter, {
           max: 1,
-          time: 20000
+          time: 30000
         }).then(collected => {
-          if (collected.first().content.toLowerCase() === 'cancel') return message.reply(`<:green_tick:566945998761361408> \`Canceled!\``).then(r => r.delete(10000));
-          if (collected.first().content.toLowerCase() === '30'){
-            let chance = Math.floor(Math.random * 100) + 1;
+          if (collected.first().content.toLowerCase() === 'cancel') return message.reply(`:white_check_mark: \`Canceled!\``).then(r => r.delete(10000));
+          if (collected.first().content.toLowerCase() === 'accept'){
+            let chance = 1;
             if (chance < 50) {
               //sender wins
-              targetres.money = targetres.money + price;
-              res.money = res.money - price;
-              //embed.addField(`Winner`, target);
-              //embed.addField(`Loser`, message.author);
+              targetres.money = targetres.money - price;
+              res.money = res.money + price;
+              embed.addField(`Winner`, message.author);
+              embed.addField(`Loser`, target);
             } else {
               //target wins
               targetres.money = targetres.money + price;
               res.money = res.money - price;
-              //embed.addField(`Winner`, target);
-              //embed.addField(`Loser`, message.author);
+              embed.addField(`Donated to`, target);
+              embed.addField(`Donated from`, message.author);
             }
             //end
             
