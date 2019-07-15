@@ -46,7 +46,7 @@ module.exports.run = async (bot, message, args) => {
           if (collected.first().content.toLowerCase() === 'cancel') return message.reply(`:white_check_mark: \`Canceled!\``).then(r => r.delete(10000));
           if (collected.first().content.toLowerCase() === 'accept'){
             let chance = 1;
-            if (chance < 50) {
+            if (chance = 2) {
               //sender wins
               targetres.money = targetres.money - price;
               res.money = res.money + price;
