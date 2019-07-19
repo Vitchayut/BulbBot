@@ -133,7 +133,7 @@ bot.on("message", async message => {
   }
   
   // Blacklisted off-site links.
-  let blacklistedA = ["discord.gg", "robuxgiver.ml"];
+  let blacklistedA = ["discord.gg", "robuxgiver.ml", "discordgg.gaga"];
   let foundInTextA = false;
   for (var i in blacklistedA) {
       if (message.content.toLowerCase().includes(blacklistedA[i].toLowerCase())) foundInTextA = true;
