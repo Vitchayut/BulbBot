@@ -30,14 +30,13 @@ let channelnotdetect = new Discord.RichEmbed()
 .setColor(red)
 .setTimestamp()
 .setDescription(`<:red_tick:566946004948090880> \`Can't find logs channel, set a logs channel first!\`\n<a:righter_arrow:518744759506960406> \`Usage: !setlog <channel>\` <a:lefter_arrow:518744793489342464>`);
-let rcs = JSON.parse(fs.readFileSync("./rcs.json", "utf8"));
-let reportschannel = "";
-if(rcs[message.guild.id]) reportschannel = message.guild.channels.find(c => c.name === rcs[message.guild.id].rc);
-if(!reportschannel) return message.channel.send(channelnotdetect);
 
 message.delete().catch(O_o=>{});
 message.guild.member(kUser).kick(kReason);
-reportschannel.send(kickEmbed);
+
+const channel = message.guild.channels.find(ch => ch.name === '📋staff-log📋');
+channel.send(kickEmbed)
+if (!channel) return message.channel.send(kickEmbed);
 
 }
 
