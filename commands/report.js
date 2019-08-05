@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
-const mongoose = require("mongoose");
+/**const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true
 });
-const Log = require("../models/log.js");
+const Log = require("../models/log.js");**/
 const errors = require("../utils/errors.js");
 const fs = require("fs");
 let config = require("../botconfig.json");
