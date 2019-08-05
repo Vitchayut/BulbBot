@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true
 });
-const Report = require("../models/report.js");
+const Log = require("../models/log.js");
 const errors = require("../utils/errors.js");
 const fs = require("fs");
 let config = require("../botconfig.json");
@@ -19,6 +19,7 @@ if(!args[0] || args[0] == "help"){
 message.reply(`:no_entry: \`Usage: !report <user> <reason>\``);
   return;
 }
+let  = message.guild.id
 
 let respondEmbed = new Discord.RichEmbed()
 .setAuthor(message.member.displayName, message.author.displayAvatarURL)
@@ -32,33 +33,26 @@ let reportEmbed = new Discord.RichEmbed()
 .setTimestamp()
 .setDescription(`**Reported user:** ${rUser} (${rUser.id})\n**Reported by:** <@${message.author.id}> (${message.author.id})\n**Reason:** ${rReason}`);
 
-/**let channelnotdetect = new Discord.RichEmbed()
+let channelnotdetect = new Discord.RichEmbed()
 .setAuthor(message.member.displayName, message.author.displayAvatarURL)
 .setColor(config.red)
 .setTimestamp()
-.setDescription(`<:red_tick:566946004948090880> \`Can't find logs channel, set a logs channel first!\`\n<a:righter_arrow:518744759506960406> \`Usage: !setlog <channel>\` <a:lefter_arrow:518744793489342464>\n <a:Question:521253226754867224> If you dont have permission to do that action, then contact your staff member to do it!`);
-let rcs = JSON.parse(fs.readFileSync("./rcs.json", "utf8"));
-let reportschannel = "";
-if(rcs[message.guild.id]) reportschannel = message.guild.channels.find(c => c.name === rcs[message.guild.id].rc);
-if(!reportschannel) return message.channel.send(channelnotdetect);
+.setDescription(`<:red_tick:566946004948090880> \`Can't find logs channel, set a logs channel first!\`\n<a:righter_arrow:518744759506960406> \`Usage: !setlog - in the channel you wanted to set.\` <a:lefter_arrow:518744793489342464>`);
 
 message.delete().catch(O_o=>{});
 reportschannel.send(reportEmbed);**/
 message.channel.send(respondEmbed);
   
-  const report = new Report({
-      _id: mongoose.Types.ObjectId(),
-      username: rUser.user.username,
-      userID: rUser.id,
-      reason: rReason,
-      rUsername: message.author.username,
-      rID: message.author.id,
-      time: message.createdAt
-  });
+Log.findOne({
+    guildID: message.guild.id, 
+    channelID: message.channel.id
+  }, (err, log) => {
+    if(err) console.log(err);
   
-  report.save()
-  .then(result => console.log(result))
-  .catch(err => console.log(err));
+    if(!log) return message.channel.send(channelnotdetect);
+    log.channelID.send(reportEmbed);
+  })
+
 
 }
 
