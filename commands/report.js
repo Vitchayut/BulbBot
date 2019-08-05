@@ -38,10 +38,15 @@ let channelnotdetect = new Discord.RichEmbed()
 .setColor(config.red)
 .setTimestamp()
 .setDescription(`<:red_tick:566946004948090880> \`Can't find logs channel, set a logs channel first!\`\n<a:righter_arrow:518744759506960406> \`Usage: !setlog - in the channel you wanted to set.\` <a:lefter_arrow:518744793489342464>`);
-
+  
+message.channel.send(respondEmbed);
 message.delete().catch(O_o=>{});
   
-Log.findOne({
+const channel = message.guild.channels.find(ch => ch.name === '📋staff-log📋');
+let owner = message.guild.owner.user.id
+if (!channel) return message.owner.send(channel);
+  
+/**Log.findOne({
     guildID: message.guild.id, 
     channelID: message.channel.id
   }, (err, log) => {
@@ -51,7 +56,7 @@ Log.findOne({
     message.channel.send(respondEmbed);
     let logChannel = message.guild.channels.find(c => c.id === log.channelID);
     logChannel.send(reportEmbed);
-  })
+  })**/
 
 
 }
