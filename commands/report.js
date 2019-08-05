@@ -40,7 +40,6 @@ let channelnotdetect = new Discord.RichEmbed()
 .setDescription(`<:red_tick:566946004948090880> \`Can't find logs channel, set a logs channel first!\`\n<a:righter_arrow:518744759506960406> \`Usage: !setlog - in the channel you wanted to set.\` <a:lefter_arrow:518744793489342464>`);
 
 message.delete().catch(O_o=>{});
-reportschannel.send(reportEmbed);**/
 message.channel.send(respondEmbed);
   
 Log.findOne({
