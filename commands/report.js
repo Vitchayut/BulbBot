@@ -49,7 +49,8 @@ Log.findOne({
   
     if(!log) return message.channel.send(channelnotdetect);
     message.channel.send(respondEmbed);
-    log.channelID.send(reportEmbed);
+    let logChannel = message.guild.channels.find(c => c.id === log.channelID);
+    logChannel.send(reportEmbed);
   })
 
 
