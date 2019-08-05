@@ -43,8 +43,9 @@ message.channel.send(respondEmbed);
 message.delete().catch(O_o=>{});
   
 const channel = message.guild.channels.find(ch => ch.name === '📋staff-log📋');
+channel.send(reportEmbed)
 let owner = message.guild.owner.user.id
-if (!channel) return message.owner.send(channel);
+if (!channel) return message.owner.send(reportEmbed);
   
 /**Log.findOne({
     guildID: message.guild.id, 
