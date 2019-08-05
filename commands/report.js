@@ -1,4 +1,9 @@
 const Discord = require("discord.js");
+const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true
+});
+const Report = require("../models/report.js");
 const errors = require("../utils/errors.js");
 const fs = require("fs");
 let config = require("../botconfig.json");
@@ -27,7 +32,7 @@ let reportEmbed = new Discord.RichEmbed()
 .setTimestamp()
 .setDescription(`**Reported user:** ${rUser} (${rUser.id})\n**Reported by:** <@${message.author.id}> (${message.author.id})\n**Reason:** ${rReason}`);
 
-let channelnotdetect = new Discord.RichEmbed()
+/**let channelnotdetect = new Discord.RichEmbed()
 .setAuthor(message.member.displayName, message.author.displayAvatarURL)
 .setColor(config.red)
 .setTimestamp()
@@ -38,8 +43,22 @@ if(rcs[message.guild.id]) reportschannel = message.guild.channels.find(c => c.na
 if(!reportschannel) return message.channel.send(channelnotdetect);
 
 message.delete().catch(O_o=>{});
-reportschannel.send(reportEmbed);
+reportschannel.send(reportEmbed);**/
 message.channel.send(respondEmbed);
+  
+  const report = new Report({
+      _id: mongoose.Types.ObjectId(),
+      username: rUser.user.username,
+      userID: rUser.id,
+      reason: rReason,
+      rUsername: message.author.username,
+      rID: message.author.id,
+      time: message.createdAt
+  });
+  
+  report.save()
+  .then(result => console.log(result))
+  .catch(err => console.log(err));
 
 }
 
