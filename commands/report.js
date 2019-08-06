@@ -51,14 +51,13 @@ const logChannel = message.guild.channels.find(ch => ch.name === 'ðŸ“‹staff-logð
 if (!logChannel){
   return message.guild.owner.send(reportDMEmbed);
   console.log("Successfully sent a DM to the guild owner!")
-  return;
 }else {
-  return message.channel.send(reportEmbed);
-  console.log("I can't send a DM to that person!")
-  return;
+  if (!logChannel) return message.channel.send(reportEmbed);
+  logChannel.send(reportEmbed);
+  console.log("Couldn't send a DM to that person!")
 }
 //if (!logChannel) return message.channel.send(reportEmbed);
-logChannel.send(reportEmbed);
+//logChannel.send(reportEmbed);
   
 /**Log.findOne({
     guildID: message.guild.id, 
