@@ -32,6 +32,12 @@ let reportEmbed = new Discord.RichEmbed()
 .setTimestamp()
 .setDescription(`**Reported user:** ${rUser} (${rUser.id})\n**Reported by:** <@${message.author.id}> (${message.author.id})\n**Reason:** ${rReason}`);
 
+let reportDMEmbed = new Discord.RichEmbed()
+.setAuthor(`Report | ${rUser.user.tag}`, `${rUser.user.displayAvatarURL}`)
+.setColor(config.orange)
+.setTimestamp()
+.setDescription(`**Guild:** ${message.guild.name}\n**Reported user:** ${rUser} (${rUser.id})\n**Reported by:** <@${message.author.id}> (${message.author.id})\n**Reason:** ${rReason}`);
+
 let channelnotdetect = new Discord.RichEmbed()
 .setAuthor(message.member.displayName, message.author.displayAvatarURL)
 .setColor(config.red)
@@ -42,7 +48,7 @@ message.channel.send(respondEmbed);
 message.delete().catch(O_o=>{});
   
 const logChannel = message.guild.channels.find(ch => ch.name === '📋staff-log📋');
-if (!logChannel) return message.guild.owner.send(reportEmbed);
+if (!logChannel) return message.guild.owner.send(reportDMEmbed);
 //if (!logChannel) return message.channel.send(reportEmbed);
 logChannel.send(reportEmbed);
   
