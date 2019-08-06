@@ -6,7 +6,7 @@ module.exports.run = (bot, message, args) => {
     })
 
     // And send it
-    message.channel.send(`\`\`\`${guildArray.join("\n")}\`\`\``)
+    console.log(`\`\`\`${guildArray.join("\n")}\`\`\``)
 
 }
 
