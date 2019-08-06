@@ -49,11 +49,8 @@ message.delete().catch(O_o=>{});
   
 const logChannel = message.guild.channels.find(ch => ch.name === '📋staff-log📋');
 if (!logChannel){
-   try {
-        message.guild.owner.send(reportDMEmbed);
-    } catch (err) {
-        message.channel.send(reportEmbed);
-    }
+  message.guild.owner.send(reportDMEmbed).catch(err => console.log(err));
+  message.channel.send(reportEmbed);
 }else {
   if (!logChannel) return message.channel.send(reportEmbed);
   logChannel.send(reportEmbed);
