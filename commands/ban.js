@@ -35,9 +35,9 @@ let channelnotdetect = new Discord.RichEmbed()
 message.delete().catch(O_o=>{});
 message.guild.member(bUser).ban(bReason);
 
-const channel = message.guild.channels.find(ch => ch.name === '📋staff-log📋');
-channel.send(banEmbed)
-if (!channel) return message.channel.send(banEmbed);
+const logChannel = message.guild.channels.find(ch => ch.name === '📋staff-log📋');
+if (!logChannel) return message.channel.send(banEmbed);
+logChannel.send(banEmbed);
 
 }
 
