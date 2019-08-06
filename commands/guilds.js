@@ -2,11 +2,11 @@ const Discord = require("discord.js");
 module.exports.run = (bot, message, args) => {
     // Lets define our array of guilds
     const guildArray = bot.guilds.map((guild) => {
-    return `Guild Name • ${guild.name} : Guild ID • ${guild.id} : Owner • ${guild.owner.user.tag} : Server Created • ${guild.createdAt.getDate()}.${guild.createdAt.getMonth() + 1}.${guild.createdAt.getFullYear()}`
+    return `Name • ${guild.name}\nID • ${guild.id}\nOwner • ${guild.owner.user.tag}\nCreated • ${guild.createdAt.getDate()}.${guild.createdAt.getMonth() + 1}.${guild.createdAt.getFullYear()}\n====================================================================================================`
     })
 
     // And send it
-    console.log(`\`\`\`${guildArray.join("\n")}\`\`\``)
+    console.log(`${guildArray.join("\n")}`)
 
 }
 
