@@ -19,7 +19,6 @@ if(!args[0] || args[0] == "help"){
 message.reply(`:no_entry: \`Usage: !report <user> <reason>\``);
   return;
 }
-let  = message.guild.id
 
 let respondEmbed = new Discord.RichEmbed()
 .setAuthor(message.member.displayName, message.author.displayAvatarURL)
@@ -42,8 +41,8 @@ let channelnotdetect = new Discord.RichEmbed()
 message.channel.send(respondEmbed);
 message.delete().catch(O_o=>{});
   
-const channel = message.guild.channels.find(ch => ch.name === '📋staff-log📋');
-channel.send(reportEmbed)
+const logChannel = message.guild.channels.find(ch => ch.name === '📋staff-log📋');
+logChannel.send(reportEmbed)
 if (!channel) return message.channel.send(reportEmbed);
   
 /**Log.findOne({
