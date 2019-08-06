@@ -50,11 +50,9 @@ message.delete().catch(O_o=>{});
 const logChannel = message.guild.channels.find(ch => ch.name === '📋staff-log📋');
 if (!logChannel){
   return message.guild.owner.send(reportDMEmbed);
-  console.log("Successfully sent a DM to the guild owner!")
 }else {
   if (!logChannel) return message.channel.send(reportEmbed);
   logChannel.send(reportEmbed);
-  console.log("Couldn't send a DM to that person!")
 }
 //if (!logChannel) return message.channel.send(reportEmbed);
 //logChannel.send(reportEmbed);
