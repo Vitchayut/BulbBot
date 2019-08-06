@@ -24,7 +24,7 @@ let respondEmbed = new Discord.RichEmbed()
 .setAuthor(message.member.displayName, message.author.displayAvatarURL)
 .setColor(config.green)
 .setTimestamp()
-.setDescription(`<:green_tick:566945998761361408> Successfully reported that user to the moderation team!\n:sunglasses::thumbsup: Thanks for your support!`);
+.setDescription(`<:green_tick:566945998761361408> Successfully reported that user to the moderation team!`);
 
 let reportEmbed = new Discord.RichEmbed()
 .setAuthor(`Report | ${rUser.user.tag}`, `${rUser.user.displayAvatarURL}`)
