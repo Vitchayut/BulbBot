@@ -1,4 +1,6 @@
 const Discord = require("discord.js");
+let config = require("../botconfig.json");
+
 module.exports.run = (bot, message, args) => {
     if (message.author.id !== "346102251632197632") return message.reply(`:no_entry: \`No permission to use this command!\``);
     // Embed text
