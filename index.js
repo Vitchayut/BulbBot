@@ -44,7 +44,7 @@ function changing_status() {
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is loaded and online on ${bot.guilds.size} servers!`);
-  setInterval(changing_status, 10000);
+  setInterval(changing_status, 20000);
   
 });
 
