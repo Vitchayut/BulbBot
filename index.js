@@ -35,16 +35,16 @@ fs.readdir("./commands/", (err, files) => {
 }); 
 
 // Statuses
-let statuses = [`with _ItsNuaZ. | !help`, `with ${bot.guilds.size} servers!`, `with ${bot.users.size} members!`];
+function changing_status() {
+    // Random playing
+    let status = [`with _ItsNuaZ. | !help`, `with ${bot.guilds.size} servers!`, `with ${bot.users.size} online members!`]
+    let random = status[Math.floor(Math.random() * status.length)]
+    bot.user.setActivity(random, {type: `PLAYING`});
+}
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is loaded and online on ${bot.guilds.size} servers!`);
-  
-  setInterval(function() {
-    let status = statuses[Math.floor(Math.random()*statuses.length)];
-    bot.user.setPresence({ activity: { name: status }, status: `online` });
-    
-  }, 10000)
+  setInterval(changing_status, 10000);
   
 });
 
