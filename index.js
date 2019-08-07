@@ -38,7 +38,7 @@ fs.readdir("./commands/", (err, files) => {
 function changing_status() {
     // Random playing
     let statuses = [`with _ItsNuaZ. | !help`, `with ${bot.guilds.size} servers!`, `with ${bot.users.size} online members!`]
-    let status = status[Math.floor(Math.random() * statuses.length)]
+    let status = statuses[Math.floor(Math.random() * statuses.length)]
     bot.user.setActivity(status, {type: `PLAYING`});
 }
 
