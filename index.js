@@ -34,9 +34,17 @@ fs.readdir("./commands/", (err, files) => {
   
 }); 
 
+// Statuses
+let statuses = [`with _ItsNuaZ. | !help`, `with ${bot.guilds.size} servers!`, `with ${bot.users.size} members!`];
+
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is loaded and online on ${bot.guilds.size} servers!`);
-  bot.user.setActivity(`with _ItsNuaZ. | !help`);
+  
+  setInterval(function() {
+    let status = statuses[Math.floor(Math.random()*statuses.length)];
+    bot.user.setPresence({ activity: { name: status }, status: `online` });
+    
+  }, 10000)
   
 });
 
