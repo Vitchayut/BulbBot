@@ -20,9 +20,10 @@ module.exports.run = async (bot, message, args) => {
 
   let sEmbed = new Discord.RichEmbed()
   .setColor(config.blue)
+  .setTimestamp()
   .setAuthor(message.member.displayName, message.author.displayAvatarURL)
-  .setTitle(":pencil: New prefix set!")
-  .setDescription(`Set to ${args[0]}`);
+  .setTitle(`:pencil: New changes to the bot's prefix!`)
+  .setDescription(`Set to ${args[0]}\n__**NOTICE:**__ This feature is currently resetting back to the default prefix after every 24 hours.`);
 
   message.channel.send(sEmbed);
 
