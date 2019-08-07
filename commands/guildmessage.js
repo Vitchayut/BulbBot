@@ -11,7 +11,7 @@ module.exports.run = (bot, message, args) => {
     .setTimestamp()
     .setDescription(botmessage)
     // Lets define our array of guilds
-    var guildList = client.guilds.array();
+    var guildList = bot.guilds.array();
         try {
             guildList.forEach(guild => guild.defaultChannel.send(botembed));
         } catch (err) {
