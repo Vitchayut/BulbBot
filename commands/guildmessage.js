@@ -11,12 +11,9 @@ module.exports.run = (bot, message, args) => {
     .setTimestamp()
     .setDescription(botmessage)
     // Lets define our array of guilds
-    var guildList = bot.guilds.array();
-        try {
-            guildList.forEach(guild => guild.defaultChannel.send(botembed));
-        } catch (err) {
-            console.log("Could not send message to " + guild.name);
-    }
+    const guildArray = bot.guilds.map((guild) => {
+        return message.guild.send(botembed)
+    })
 
     // And send it
     message.reply(`<:green_tick:566945998761361408> \`Successfully sent a message to all the guilds!\``);
