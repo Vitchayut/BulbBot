@@ -8,10 +8,10 @@ let embed = new Discord.RichEmbed()
 .setAuthor(message.member.displayName, message.author.displayAvatarURL)
 .setColor(config.gold)
 .setTimestamp()
-.setDescription(`:ping_pong: Pong! \no``);
+.setDescription(`The Server's IP is 66.70.177.19:2238`);
 message.channel.send(embed)
 
 }
 module.exports.help = {
-  name: "pinglol"
+  name: "ip"
 }
