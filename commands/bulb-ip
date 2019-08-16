@@ -7,7 +7,7 @@ let embed = new Discord.RichEmbed()
 .setAuthor(message.member.displayName, message.author.displayAvatarURL)
 .setColor(config.gold)
 .setTimestamp()
-.setDescription(`The server IP is 66.70.177.19:2238);
+.setDescription(`The server IP is 66.70.177.19:2238`);
 message.channel.send(embed)
 
 }
