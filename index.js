@@ -81,7 +81,7 @@ bot.on('guildMemberAdd', member => {
 
 bot.on('guildMemberRemove', member => {
   // Goodbye message, with cool embed and custom emojis.
-  const channel = member.guild.channels.find(ch => ch.name === '👋welcome-goodbye👋');
+  const channel = member.guild.channels.find(ch => ch.name === 'welcome-goodbye');
   if (!channel) return;
   let goodbyeembed = new Discord.RichEmbed()
   .setAuthor(member.user.username, member.user.displayAvatarURL)
