@@ -1,12 +1,12 @@
 {
-  "prefix": "!",
+  "prefix": "b!",
   "red": "#ff3320",
   "orange": "#ff6a00",
   "green": "00c646",
   "purple": "#d604cf",
   "blue": "#3498db",
   "gold": "#f39c12",
-  "version": "0.6.2d",
+  "version": "0.0.1a",
   "owner": "_ItsNuaZ#3977",
   "ownerURL": "https://cdn.discordapp.com/avatars/346102251632197632/b92c95190ff53e40c396104534d71f75.png"
 }
