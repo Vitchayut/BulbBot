@@ -44,7 +44,7 @@ let helpembed = new Discord.RichEmbed()
       });
 
       forwards.on('collect', () => {
-        if (page === 5) return;
+        if (page === 4) return;
         page++;
         color++;
         helpembed.setDescription(pages[page - 1]);
