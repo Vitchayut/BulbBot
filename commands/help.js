@@ -39,7 +39,7 @@ let helpembed = new Discord.RichEmbed()
         color--;
         helpembed.setDescription(pages[page - 1]);
         helpembed.setColor(colors[color - 1]);
-        helpembed.setFooter(`Page ${page} of 5`);
+        helpembed.setFooter(`Page ${page} of 4`);
         msg.edit(helpembed);
       });
 
@@ -49,7 +49,7 @@ let helpembed = new Discord.RichEmbed()
         color++;
         helpembed.setDescription(pages[page - 1]);
         helpembed.setColor(colors[color - 1]);
-        helpembed.setFooter(`Page ${page} of 5`);
+        helpembed.setFooter(`Page ${page} of 4`);
         msg.edit(helpembed);
       });
     });
