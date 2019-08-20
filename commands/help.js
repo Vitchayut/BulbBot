@@ -10,7 +10,7 @@ let dm = new Discord.RichEmbed()
     .setTimestamp()
     message.channel.send(dm);
 
-const pages = [cmd.page1, cmd.page2, cmd.page3, cmd.page4, cmd.page5]
+const pages = [cmd.page1, cmd.page2, cmd.page3, cmd.page4]
 let page = 1;
 
 const colors = ['#2855fc', '#fcf428', '#fc2929', '#f39c12', '#28bffc']
