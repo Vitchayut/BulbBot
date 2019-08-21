@@ -121,7 +121,7 @@ bot.on("message", async message => {
     };
   }**/
   
-  // Blacklisted words.
+  /** Blacklisted words.
   let blacklisted = ["fuck", "faggot", "nigga", "nigger", "pussy", "rape", "dick", "pussi", "porn", "dildo", "nazi", "hitler", "penis", "boob", "cunt", "cum", "bitch", "nude", "cock", "twat", "hentai", "anal", "spank", "blowjob", "futanari", "vagina", "lordshibedespacito"];
   let foundInText = false;
   for (var i in blacklisted) {
@@ -138,7 +138,7 @@ bot.on("message", async message => {
       .setColor("#f44242")
       .addField("<:Content_Blocked:523798974876876810> \`Your message contains inappropriate letters or words, deleted.\` <a:BoiGifFixed:511160003667689484>", message.author)
       message.channel.send(badword).then(msg => {msg.delete(10850)});
-  }
+  }**/
   
   // Blacklisted off-site links.
   let blacklistedA = ["discord.gg", "robuxgiver.ml", "discordgg.gaga"];
