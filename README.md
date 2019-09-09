@@ -2,6 +2,7 @@
 For educational purposes.
 
 Credits to [**Zendovo**](https://github.com/Zendovo) & [**TheSourceCode**](https://github.com/The-SourceCode) for their useful guides & tutorial on how to host a bot on Heroku.
+Also thanks to [**ItsNuaZ**](https://github.com/ItsNuaZ) for letting me use his code.
 
 # Additional Notes:
 Be sure to replace the following tokens with yours!
