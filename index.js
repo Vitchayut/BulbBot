@@ -50,7 +50,7 @@ bot.on("ready", async () => {
 
 bot.on('guildMemberAdd', member => {
   // Welcome message, with cool embed and custom emojis.
-  const channel = member.guild.channels.find(ch => ch.name === 'welcome-goodbye');
+  const channel = member.guild.channels.find(ch => ch.name === 'join-leave-logs');
   if (!channel) return;
   let welcomeembed = new Discord.RichEmbed()
   .setAuthor(member.user.username, member.user.displayAvatarURL)
