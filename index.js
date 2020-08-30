@@ -37,7 +37,7 @@ fs.readdir("./commands/", (err, files) => {
 // Statuses
 function changing_status() {
     // Random playing
-    let statuses = [`in BulbSMP | b!help`, `with 0 players (what?)`, `with ${bot.guilds.size} servers!`]
+    let statuses = [`in BulbSMP | b!help`, `with ${bot.guilds.size} servers!`]
     let status = statuses[Math.floor(Math.random() * statuses.length)]
     bot.user.setActivity(status, {type: `PLAYING`});
 }
@@ -56,8 +56,8 @@ bot.on('guildMemberAdd', member => {
   .setAuthor(member.user.username, member.user.displayAvatarURL)
   .setThumbnail(member.user.displayAvatarURL)
   .setTimestamp()
-  .addField(`<:addMember:518733392402186240> Welcome to the server, **${member.user.tag}**`, `<a:cooldoge:511180988601073665> Thanks for joining with us, ${member.user.username}`)
-  .setColor(`#409cd9`)
+  .addField(`<:addMember:518733392402186240> Welcome to the server, **${member.user.tag}**`, `<a:coolDoge:749459530425040916> Thanks for joining with us, ${member.user.username}`)
+  .setColor(`#ffbc1c`)
   channel.send(welcomeembed);
   
   // We also want to return if the member's guild isn't the same as the one with serverStats
