@@ -74,7 +74,7 @@ bot.on('guildMemberAdd', member => {
   .setThumbnail(member.user.displayAvatarURL)
   .setTimestamp()
   .addField(`<a:cooldoge:511180988601073665> Thanks for joining with us, ${member.user.username}`, `<a:Confused_Dog:511180901934301204> To get verified, head over to <#499469631266881538> and type \`!verify\` to receive <@&426223113605480449>.`)
-  .setColor(`#409cd9`)
+  .setColor(`#ffbc1c`)
   dmchannel.send(dmembed);
   
 });
