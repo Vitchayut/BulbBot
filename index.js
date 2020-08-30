@@ -37,7 +37,7 @@ fs.readdir("./commands/", (err, files) => {
 // Statuses
 function changing_status() {
     // Random playing
-    let statuses = [`in BulbSMP | b!help`, `with ${bot.guilds.size} servers!`]
+    let statuses = [`in BulbSMP | b!help`, `with Season 10 players!`]
     let status = statuses[Math.floor(Math.random() * statuses.length)]
     bot.user.setActivity(status, {type: `PLAYING`});
 }
